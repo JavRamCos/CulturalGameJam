@@ -10,7 +10,7 @@ public class SpawnTile : MonoBehaviour
     void Start()
     {
         int rnd = Random.Range(0, (objs.Length - 1));
-        Debug.Log("Length: " + objs.Length.ToString() + ", " + rnd.ToString());
+        //Debug.Log("Length: " + objs.Length.ToString() + ", " + rnd.ToString());
         GameObject instancia = (GameObject)Instantiate(objs[rnd], transform.position, Quaternion.identity);
         instancia.transform.parent = gameObject.transform;
     }

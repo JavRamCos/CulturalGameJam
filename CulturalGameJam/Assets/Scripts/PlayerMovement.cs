@@ -23,6 +23,16 @@ public class PlayerMovement : MonoBehaviour
         movementX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
 
+        //Debug.Log(movementX);
+        if(movementX > 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        if(movementX < 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
         if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpf);

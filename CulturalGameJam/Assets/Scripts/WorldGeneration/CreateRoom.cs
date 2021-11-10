@@ -24,13 +24,15 @@ public class CreateRoom : MonoBehaviour
 
     private int dCount;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         int rndSpawnPoint = Random.Range(0, spawnPoints.Length);
         transform.position = spawnPoints[rndSpawnPoint].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
-        Instantiate(playerSpawn[0], transform.position, Quaternion.identity);
+        Instantiate(playerSpawn[0], new Vector2(transform.position.x, transform.position.y + 5), Quaternion.identity);
 
         direccion = Random.Range(1, 6);
     }

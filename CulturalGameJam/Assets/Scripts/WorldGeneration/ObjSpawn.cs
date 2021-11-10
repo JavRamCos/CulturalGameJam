@@ -13,7 +13,7 @@ public class ObjSpawn : MonoBehaviour
         int rnd = Random.Range(0, props.Length + 2);
         if (rnd == (props.Length + 1))
         {
-            Debug.Log("Simon aqui no va nada");
+            //Debug.Log("Simon aqui no va nada");
         }
         else
         {
