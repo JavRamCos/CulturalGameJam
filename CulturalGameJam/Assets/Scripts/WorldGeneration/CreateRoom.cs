@@ -7,6 +7,7 @@ public class CreateRoom : MonoBehaviour
 
     public Transform[] spawnPoints;
     public GameObject[] rooms;
+    public GameObject[] playerSpawn;
 
     private int direccion;
     public float moveAmount = 10f;
@@ -29,6 +30,7 @@ public class CreateRoom : MonoBehaviour
         int rndSpawnPoint = Random.Range(0, spawnPoints.Length);
         transform.position = spawnPoints[rndSpawnPoint].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
+        Instantiate(playerSpawn[0], transform.position, Quaternion.identity);
 
         direccion = Random.Range(1, 6);
     }
