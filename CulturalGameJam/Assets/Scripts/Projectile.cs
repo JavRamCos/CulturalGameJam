@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player") {
-            // Hacer daño al personaje
+            other.gameObject.GetComponent<PlayerHealth>().takeHit(1);
         }
         Destroy(this.gameObject);
     }
