@@ -9,6 +9,7 @@ TagManager:
   - AllSidedSpike
   - Projectile
   - Teleporter
+  - Collectible
   layers:
   - Default
   - TransparentFX
