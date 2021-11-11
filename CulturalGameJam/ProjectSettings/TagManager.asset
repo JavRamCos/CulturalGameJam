@@ -8,6 +8,7 @@ TagManager:
   - OneSidedSpike
   - AllSidedSpike
   - Projectile
+  - Teleporter
   layers:
   - Default
   - TransparentFX
