@@ -10,6 +10,11 @@ TagManager:
   - Projectile
   - Teleporter
   - Collectible
+  - Ammo
+  - Health
+  - Pelota
+  - Veneno
+  - Pluma
   layers:
   - Default
   - TransparentFX
