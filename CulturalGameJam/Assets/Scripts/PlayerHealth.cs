@@ -27,4 +27,8 @@ public class PlayerHealth : MonoBehaviour
         health -= hp;
         //if(health <= 0) se murio
     }
+
+    public void receiveHealth(int hp) {
+        health += hp;
+    }
 }

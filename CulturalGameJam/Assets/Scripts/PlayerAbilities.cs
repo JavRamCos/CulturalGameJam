@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAbilities : MonoBehaviour
 {
+    public static PlayerAbilities instance;
     public GameObject bullet;
     public Transform fireDest;
     public Transform fireDestUp;
@@ -12,6 +13,12 @@ public class PlayerAbilities : MonoBehaviour
     private bool canShoot = true;
 
     public float fireSpeed = 10f;
+    private void Awake() {
+        if(instance == null) {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
