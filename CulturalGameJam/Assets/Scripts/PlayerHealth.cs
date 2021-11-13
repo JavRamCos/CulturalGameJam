@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static PlayerHealth instance;
+
     public int health;
     public int maxHealth = 5;
+
+    private void Awake() {
+        if(instance == null) {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
