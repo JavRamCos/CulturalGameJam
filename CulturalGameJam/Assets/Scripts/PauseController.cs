@@ -14,6 +14,14 @@ public class PauseController : MonoBehaviour
 	[SerializeField] private GameObject losePanel;
 	[SerializeField] private Slider musicSlider;
 	[SerializeField] private Slider vfxSlider;
+	[SerializeField] private Image healthOne;
+	[SerializeField] private Image healthTwo;
+	[SerializeField] private Image healthThree;
+	[SerializeField] private Image healthFour;
+	[SerializeField] private Image healthFive;
+	[SerializeField] private Sprite fullHeart;
+	[SerializeField] private Sprite emptyHeart;
+	private GameObject playerObj;
 	private bool onPause;
 	private bool canPause;
 
@@ -34,6 +42,12 @@ public class PauseController : MonoBehaviour
 	}
 
 	private void Update() {
+		playerObj = GameObject.FindGameObjectWithTag("Player");
+		PlayerHealth ph = playerObj.GetComponent<PlayerHealth>();
+		if(ph != null) {
+			int lives = ph.GetHealth();
+			ShowPlayerHealth(lives);
+        }
 		if (Input.GetKeyDown(KeyCode.Escape) && canPause == true) {
 			if (onPause) {
 				onPause = false;
@@ -46,6 +60,46 @@ public class PauseController : MonoBehaviour
 			}
 		}
 	}
+
+	public void ShowPlayerHealth(int lives) {
+		switch(lives) {
+			case 1:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = emptyHeart;
+				healthThree.sprite = emptyHeart;
+				healthFour.sprite = emptyHeart;
+				healthFive.sprite = emptyHeart;
+				break;
+			case 2:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
+				healthThree.sprite = emptyHeart;
+				healthFour.sprite = emptyHeart;
+				healthFive.sprite = emptyHeart;
+				break;
+			case 3:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
+				healthThree.sprite = fullHeart;
+				healthFour.sprite = emptyHeart;
+				healthFive.sprite = emptyHeart;
+				break;
+			case 4:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
+				healthThree.sprite = fullHeart;
+				healthFour.sprite = fullHeart;
+				healthFive.sprite = emptyHeart;
+				break;
+			default:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
+				healthThree.sprite = fullHeart;
+				healthFour.sprite = fullHeart;
+				healthFive.sprite = fullHeart;
+				break;
+        }
+    }
 
 	public void ResumeGameplay() {
 		pausePanel.SetActive(false);

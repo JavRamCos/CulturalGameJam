@@ -31,4 +31,6 @@ public class PlayerHealth : MonoBehaviour
     public void receiveHealth(int hp) {
         health += hp;
     }
+
+    public int GetHealth() { return health; }
 }
