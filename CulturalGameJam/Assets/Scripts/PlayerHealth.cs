@@ -25,7 +25,15 @@ public class PlayerHealth : MonoBehaviour
     public void takeHit(int hp)
     {
         health -= hp;
-        //if(health <= 0) se murio
+        if (health <= 0) {
+            GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
+            PauseController pc = gameManager.GetComponent<PauseController>();
+            if(pc != null) {
+                PlayerMovement.instance.SetIsDead(true);
+                PlayerAbilities.instance.SetIsDead(true);
+                pc.ShowLosePanel();
+            }
+        }
     }
 
     public void receiveHealth(int hp) {

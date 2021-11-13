@@ -11,7 +11,7 @@ public class PlayerAbilities : MonoBehaviour
     public float shootTime;
     private float stime = 0f;
     private bool canShoot = true;
-
+    private bool isDead = false;
     public float fireSpeed = 10f;
     private void Awake() {
         if(instance == null) {
@@ -28,25 +28,28 @@ public class PlayerAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isDead == false) {
+            if (Input.GetButtonDown("Fire1") && canShoot) {
+                Transform direction = fireDest;
+                if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
+                    direction = fireDestUp;
+                GameObject proj = Instantiate(bullet, direction.position, direction.rotation) as GameObject;
+                Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
+                rb.velocity = direction.transform.right * fireSpeed;
+                canShoot = false;
+            }
 
-        if (Input.GetButtonDown("Fire1") && canShoot){
-            Transform direction = fireDest;
-            if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
-                direction = fireDestUp;
-            GameObject proj = Instantiate(bullet, direction.position, direction.rotation) as GameObject;
-            Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
-            rb.velocity = direction.transform.right * fireSpeed;
-            canShoot = false;
-        }
-
-        if (!canShoot)
-        {
-            stime += Time.deltaTime;
-            if (stime >= shootTime)
-            {
-                canShoot = true;
-                stime = 0f;
+            if (!canShoot) {
+                stime += Time.deltaTime;
+                if (stime >= shootTime) {
+                    canShoot = true;
+                    stime = 0f;
+                }
             }
         }
+    }
+
+    public void SetIsDead(bool value) {
+        isDead = value;
     }
 }
