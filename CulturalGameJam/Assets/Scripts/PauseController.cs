@@ -20,6 +20,7 @@ public class PauseController : MonoBehaviour
 	[SerializeField] private Image healthFour;
 	[SerializeField] private Image healthFive;
 	[SerializeField] private Sprite fullHeart;
+	[SerializeField] private Sprite halfHeart;
 	[SerializeField] private Sprite emptyHeart;
 	private GameObject playerObj;
 	private bool onPause;
@@ -63,8 +64,15 @@ public class PauseController : MonoBehaviour
 
 	public void ShowPlayerHealth(int lives) {
 		switch(lives) {
+			case 0:
+				healthOne.sprite = emptyHeart;
+				healthTwo.sprite = emptyHeart;
+				healthThree.sprite = emptyHeart;
+				healthFour.sprite = emptyHeart;
+				healthFive.sprite = emptyHeart;
+				break;
 			case 1:
-				healthOne.sprite = fullHeart;
+				healthOne.sprite = halfHeart;
 				healthTwo.sprite = emptyHeart;
 				healthThree.sprite = emptyHeart;
 				healthFour.sprite = emptyHeart;
@@ -72,24 +80,59 @@ public class PauseController : MonoBehaviour
 				break;
 			case 2:
 				healthOne.sprite = fullHeart;
-				healthTwo.sprite = fullHeart;
+				healthTwo.sprite = emptyHeart;
 				healthThree.sprite = emptyHeart;
 				healthFour.sprite = emptyHeart;
 				healthFive.sprite = emptyHeart;
 				break;
 			case 3:
 				healthOne.sprite = fullHeart;
-				healthTwo.sprite = fullHeart;
-				healthThree.sprite = fullHeart;
+				healthTwo.sprite = halfHeart;
+				healthThree.sprite = emptyHeart;
 				healthFour.sprite = emptyHeart;
 				healthFive.sprite = emptyHeart;
 				break;
 			case 4:
 				healthOne.sprite = fullHeart;
 				healthTwo.sprite = fullHeart;
+				healthThree.sprite = emptyHeart;
+				healthFour.sprite = emptyHeart;
+				healthFive.sprite = emptyHeart;
+				break;
+			case 5:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
+				healthThree.sprite = halfHeart;
+				healthFour.sprite = emptyHeart;
+				healthFive.sprite = emptyHeart;
+				break;
+			case 6:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
+				healthThree.sprite = fullHeart;
+				healthFour.sprite = emptyHeart;
+				healthFive.sprite = emptyHeart;
+				break;
+			case 7:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
+				healthThree.sprite = fullHeart;
+				healthFour.sprite = halfHeart;
+				healthFive.sprite = emptyHeart;
+				break;
+			case 8:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
 				healthThree.sprite = fullHeart;
 				healthFour.sprite = fullHeart;
 				healthFive.sprite = emptyHeart;
+				break;
+			case 9:
+				healthOne.sprite = fullHeart;
+				healthTwo.sprite = fullHeart;
+				healthThree.sprite = fullHeart;
+				healthFour.sprite = fullHeart;
+				healthFive.sprite = halfHeart;
 				break;
 			default:
 				healthOne.sprite = fullHeart;

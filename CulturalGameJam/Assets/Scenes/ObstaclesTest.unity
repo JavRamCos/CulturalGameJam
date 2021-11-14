@@ -1232,6 +1232,7 @@ MonoBehaviour:
   healthFour: {fileID: 858937368}
   healthFive: {fileID: 1893994062}
   fullHeart: {fileID: 21300000, guid: 52fa148155a0a014cb45b51e53c9a375, type: 3}
+  halfHeart: {fileID: 21300000, guid: 0ef323d792f3e4e4388216110d4e057d, type: 3}
   emptyHeart: {fileID: 21300000, guid: 1a09b0c47df7fbd40827acbd0c560c67, type: 3}
 --- !u!82 &733097711
 AudioSource:
