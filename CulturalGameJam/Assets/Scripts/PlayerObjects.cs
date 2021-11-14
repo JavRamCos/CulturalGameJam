@@ -45,6 +45,11 @@ public class PlayerObjects : MonoBehaviour
         } else if (collision.gameObject.tag == "Pelota") {
             PlayerPrefs.SetInt("HasPelota", 1);
             //Destroy(collision.gameObject);
+        } else if (collision.gameObject.name == "TutorialEnd") {
+            TutorialController tc = GameObject.FindGameObjectWithTag("GameController").GetComponent<TutorialController>();
+            if(tc != null) {
+                tc.EndTutorial();
+            }
         }
     }
 

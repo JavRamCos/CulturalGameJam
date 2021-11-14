@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public static PlayerHealth instance;
 
     public int health;
-    public int maxHealth = 5;
+    public int maxHealth = 10;
     [SerializeField] protected Animator animator;
 
 

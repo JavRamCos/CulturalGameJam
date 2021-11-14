@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -26,6 +27,9 @@ public class MainMenuController : MonoBehaviour
         if (!PlayerPrefs.HasKey("VFX")) {
             PlayerPrefs.SetFloat("VFX", 0.8f);
         }
+        if(!PlayerPrefs.HasKey("CompletedTutorial")) {
+            PlayerPrefs.SetInt("CompletedTutorial", 0);
+        }
         musicSlider.maxValue = 1.0f;
         vfxSlider.maxValue = 1.0f;
         musicSlider.value = PlayerPrefs.GetFloat("Music");
@@ -47,6 +51,11 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame() {
         PlayClickSound();
+        if (PlayerPrefs.GetInt("CompletedTutorial") == 0) {
+            SceneManager.LoadScene("Tutorial");
+        } else {
+            SceneManager.LoadScene("Level1");
+        }
     }
 
     public void OptionsSelected() {
