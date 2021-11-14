@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
 
     public int health;
     public int maxHealth = 5;
+    [SerializeField] protected Animator animator;
+
 
     private void Awake() {
         if(instance == null) {
@@ -25,7 +27,10 @@ public class PlayerHealth : MonoBehaviour
     public void takeHit(int hp)
     {
         health -= hp;
+        
+
         if (health <= 0) {
+            animator.SetBool("Dead", true);
             GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
             PauseController pc = gameManager.GetComponent<PauseController>();
             if(pc != null) {
@@ -34,8 +39,19 @@ public class PlayerHealth : MonoBehaviour
                 pc.ShowLosePanel();
             }
         }
+        else
+        {
+            animator.SetBool("PlayerHit", true);
+            Invoke("HitAnimation", 0.5f);
+        }
+        
     }
 
+    private void HitAnimation()
+    {
+        animator.SetBool("PlayerHit", false);
+
+    }
     public void receiveHealth(int hp) {
         health += hp;
     }

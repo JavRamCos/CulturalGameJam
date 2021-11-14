@@ -13,16 +13,12 @@ public class PlayerAbilities : MonoBehaviour
     private bool canShoot = true;
     private bool isDead = false;
     public float fireSpeed = 10f;
+    [SerializeField] protected Animator animator;
+
     private void Awake() {
         if(instance == null) {
             instance = this;
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -37,6 +33,9 @@ public class PlayerAbilities : MonoBehaviour
                 Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
                 rb.velocity = direction.transform.right * fireSpeed;
                 canShoot = false;
+                animator.SetBool("Shooting", true);
+                Invoke("ChangeBool", 0.5f);
+
             }
 
             if (!canShoot) {
@@ -47,6 +46,12 @@ public class PlayerAbilities : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void ChangeBool()
+    {
+        animator.SetBool("Shooting", false);
+
     }
 
     public void SetIsDead(bool value) {
