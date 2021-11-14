@@ -15,7 +15,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource vfxSource;
     [SerializeField] private AudioClip clickSound;
-
+    [SerializeField] private Image backgroundImg;
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -33,6 +33,7 @@ public class MainMenuController : MonoBehaviour
         mainPanel.SetActive(true);
         optionsPanel.SetActive(false);
         creditsPanel.SetActive(false);
+        backgroundImg.enabled = true;
     }
 
     private void Update() {
@@ -72,12 +73,14 @@ public class MainMenuController : MonoBehaviour
 
     public void CreditsSelected() {
         PlayClickSound();
+        backgroundImg.enabled = false;
         mainPanel.SetActive(false);
         creditsPanel.SetActive(true);
     }
 
     public void BackToMainFromCredits() {
         PlayClickSound();
+        backgroundImg.enabled = true;
         creditsPanel.SetActive(false);
         mainPanel.SetActive(true);
     }
