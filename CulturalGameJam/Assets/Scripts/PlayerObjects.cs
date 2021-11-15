@@ -9,9 +9,9 @@ public class PlayerObjects : MonoBehaviour
         if (instance == null) {
             instance = this;
         }
-        PlayerPrefs.SetInt("HasPelota", 0);
-        PlayerPrefs.SetInt("HasVeneno", 0);
-        PlayerPrefs.SetInt("HasPluma", 0);
+        //PlayerPrefs.SetInt("HasPelota", 0);
+        //PlayerPrefs.SetInt("HasVeneno", 0);
+        //PlayerPrefs.SetInt("HasPluma", 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

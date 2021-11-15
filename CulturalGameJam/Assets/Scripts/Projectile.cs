@@ -9,6 +9,11 @@ public class Projectile : MonoBehaviour {
             if(ph != null) {
                 ph.takeHit(1);
             }
+        } else if(other.gameObject.tag == "Boss") {
+            BossController bc = other.gameObject.GetComponent<BossController>();
+            if(bc != null) {
+                bc.TakeDamage(2);
+            }
         }
         Destroy(this.gameObject);
     }

@@ -16,6 +16,7 @@ TagManager:
   - Veneno
   - Pluma
   - BossProjectile
+  - Boss
   layers:
   - Default
   - TransparentFX

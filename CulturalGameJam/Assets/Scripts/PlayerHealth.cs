@@ -9,12 +9,14 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public int maxHealth = 10;
     [SerializeField] protected Animator animator;
+    private bool canGetDamage;
 
 
     private void Awake() {
         if(instance == null) {
             instance = this;
         }
+        canGetDamage = true;
     }
 
     // Start is called before the first frame update
@@ -26,25 +28,28 @@ public class PlayerHealth : MonoBehaviour
     //Recibir danio
     public void takeHit(int hp)
     {
-        health -= hp;
-        
-
-        if (health <= 0) {
-            animator.SetBool("Dead", true);
-            GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
-            PauseController pc = gameManager.GetComponent<PauseController>();
-            if(pc != null) {
-                PlayerMovement.instance.SetIsDead(true);
-                PlayerAbilities.instance.SetIsDead(true);
-                pc.ShowLosePanel();
+        if(canGetDamage == true) {
+            health -= hp;
+            canGetDamage = false;
+            if (health <= 0) {
+                animator.SetBool("Dead", true);
+                GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
+                PauseController pc = gameManager.GetComponent<PauseController>();
+                if (pc != null) {
+                    PlayerMovement.instance.SetIsDead(true);
+                    PlayerAbilities.instance.SetIsDead(true);
+                    pc.ShowLosePanel();
+                }
+            } else {
+                animator.SetBool("PlayerHit", true);
+                Invoke("HitAnimation", 0.5f);
             }
-        }
-        else
-        {
-            animator.SetBool("PlayerHit", true);
-            Invoke("HitAnimation", 0.5f);
-        }
-        
+            Invoke("SetCanGetDamage", 2.0f);
+        }  
+    }
+
+    public void SetCanGetDamage() {
+        canGetDamage = true;
     }
 
     private void HitAnimation()
