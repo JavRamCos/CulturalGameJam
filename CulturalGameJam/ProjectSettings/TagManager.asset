@@ -15,6 +15,7 @@ TagManager:
   - Pelota
   - Veneno
   - Pluma
+  - BossProjectile
   layers:
   - Default
   - TransparentFX

@@ -51,11 +51,7 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame() {
         PlayClickSound();
-        if (PlayerPrefs.GetInt("CompletedTutorial") == 0) {
-            SceneManager.LoadScene("Tutorial");
-        } else {
-            SceneManager.LoadScene("Level1");
-        }
+        SceneManager.LoadScene("Intro");
     }
 
     public void OptionsSelected() {
