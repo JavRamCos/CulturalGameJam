@@ -6,7 +6,6 @@ public class BossController : MonoBehaviour {
     public static BossController instance;
 
     [SerializeField] private int health;
-    [SerializeField] private int damage;
     [SerializeField] private float speed;
     [SerializeField] private float fireRate;
     [SerializeField] private float positionRate;
@@ -60,6 +59,17 @@ public class BossController : MonoBehaviour {
             Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
             rb.velocity = new Vector2(playerPos.x-gameObject.transform.position.x, playerPos.y-gameObject.transform.position.y) * 1.2f;
             counter2 = 0.0f;
+        }
+    }
+
+    public void TakeDamage(int damage) {
+        if(PlayerPrefs.GetInt("HasVeneno") == 1) {
+            health -= damage;
+        } else {
+            health -= (int)(damage/2);
+        }
+        if(health <= 0) {
+            isDead = true;
         }
     }
 }

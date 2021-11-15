@@ -180,7 +180,8 @@ public class PauseController : MonoBehaviour
     }
 
 	public void Restart() {
-		SceneManager.LoadScene("Scene");
+		Time.timeScale = 1.0f;
+		SceneManager.LoadScene("Level1");
     }
 
 	public void ExitToMainMenu() {

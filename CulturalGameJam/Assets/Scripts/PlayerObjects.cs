@@ -50,6 +50,9 @@ public class PlayerObjects : MonoBehaviour
             if(tc != null) {
                 tc.EndTutorial();
             }
+        } else if (collision.gameObject.tag == "BossProjectile") {
+            PlayerHealth.instance.takeHit(1);
+            Destroy(collision.gameObject);
         }
     }
 
