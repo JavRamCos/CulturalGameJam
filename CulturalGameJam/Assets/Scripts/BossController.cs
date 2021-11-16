@@ -11,6 +11,7 @@ public class BossController : MonoBehaviour {
     [SerializeField] private float positionRate;
     [SerializeField] private Transform[] positions;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Animator BossAnim;
     private Vector3 nextPos;
     private Vector3 playerPos;
     private float counter1;
@@ -19,18 +20,19 @@ public class BossController : MonoBehaviour {
     private bool hasNextPos;
 
     private void Awake() {
-        if(instance == null) {
+        if (instance == null) {
             instance = this;
         }
         isDead = false;
         hasNextPos = false;
-        gameObject.transform.position =positions[0].transform.position;
+        gameObject.transform.position = positions[0].transform.position;
         counter1 = 0.0f;
         counter2 = 0.0f;
+        BossAnim.SetBool("IsDead", false);
     }
 
     private void FixedUpdate() {
-        if(isDead == false) {
+        if (isDead == false) {
             if (hasNextPos == false) {
                 nextPos = positions[Random.Range(0, positions.Length)].transform.position;
                 hasNextPos = true;
@@ -42,9 +44,9 @@ public class BossController : MonoBehaviour {
 
     private void ChangePosition() {
         counter1 += Time.deltaTime;
-        if(counter1 >= positionRate) {
+        if (counter1 >= positionRate) {
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, nextPos, speed * Time.deltaTime);
-            if(gameObject.transform.position == nextPos) {
+            if (gameObject.transform.position == nextPos) {
                 hasNextPos = false;
                 counter1 = 0.0f;
             }
@@ -53,23 +55,30 @@ public class BossController : MonoBehaviour {
 
     private void FireAtPlayer() {
         counter2 += Time.deltaTime;
-        if(counter2 >= fireRate) {
+        if (counter2 >= fireRate) {
             playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-            GameObject proj = Instantiate(projectilePrefab, gameObject.transform.position,Quaternion.identity) as GameObject;
+            GameObject proj = Instantiate(projectilePrefab, gameObject.transform.position, Quaternion.identity) as GameObject;
             Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
-            rb.velocity = new Vector2(playerPos.x-gameObject.transform.position.x, playerPos.y-gameObject.transform.position.y) * 1.2f;
+            rb.velocity = new Vector2(playerPos.x - gameObject.transform.position.x, playerPos.y - gameObject.transform.position.y) * 1.2f;
             counter2 = 0.0f;
         }
     }
 
     public void TakeDamage(int damage) {
-        if(PlayerPrefs.GetInt("HasVeneno") == 1) {
+        if (PlayerPrefs.GetInt("HasVeneno") == 1) {
             health -= damage;
         } else {
-            health -= (int)(damage/2);
+            health -= (int)(damage / 2);
         }
-        if(health <= 0) {
+        if (health <= 0) {
+            BossAnim.SetBool("IsDead", true);
             isDead = true;
+            Invoke("WinGame", 1.2f);
         }
     }
+
+    public void WinGame() {
+        print("Game Win");
+    }
+
 }
