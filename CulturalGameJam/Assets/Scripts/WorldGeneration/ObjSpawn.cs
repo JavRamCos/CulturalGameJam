@@ -17,8 +17,9 @@ public class ObjSpawn : MonoBehaviour
         }
         else
         {
-            var newObj = Instantiate(props[0], transform.position, Quaternion.identity);
+            var newObj = Instantiate(props[rnd], transform.position, Quaternion.identity);
             newObj.transform.parent = gameObject.transform;
+            
         }
 
     }
@@ -28,4 +29,7 @@ public class ObjSpawn : MonoBehaviour
     {
 
     }
+
+
+
 }
