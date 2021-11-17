@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "ground")
+        if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "OneSidedSpike" || collision.gameObject.tag == "AllSidedSpike")
         {
             grounded = true;
             animator.SetBool("Jumping", false);
