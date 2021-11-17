@@ -185,6 +185,7 @@ public class PauseController : MonoBehaviour
     }
 
 	public void ExitToMainMenu() {
+		Time.timeScale = 1.0f;
 		SceneManager.LoadScene("MainMenu");
 	}
 }
