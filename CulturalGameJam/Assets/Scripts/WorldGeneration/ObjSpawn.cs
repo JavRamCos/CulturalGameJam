@@ -10,8 +10,8 @@ public class ObjSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int rnd = Random.Range(0, props.Length + 2);
-        if (rnd == (props.Length + 1))
+        int rnd = Random.Range(0, props.Length);
+        if (rnd > props.Length)
         {
             //Debug.Log("Simon aqui no va nada");
         }
