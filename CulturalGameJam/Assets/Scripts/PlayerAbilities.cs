@@ -14,6 +14,7 @@ public class PlayerAbilities : MonoBehaviour
     private bool isDead = false;
     public float fireSpeed = 10f;
     [SerializeField] protected Animator animator;
+    public int ammo = 5;
 
     private void Awake() {
         if(instance == null) {
@@ -26,15 +27,19 @@ public class PlayerAbilities : MonoBehaviour
     {
         if(isDead == false) {
             if (Input.GetButtonDown("Fire1") && canShoot) {
-                Transform direction = fireDest;
-                if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
-                    direction = fireDestUp;
-                GameObject proj = Instantiate(bullet, direction.position, direction.rotation) as GameObject;
-                Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
-                rb.velocity = direction.transform.right * fireSpeed;
-                canShoot = false;
+                if (ammo > 0)
+                {
+                    Transform direction = fireDest;
+                    if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
+                        direction = fireDestUp;
+                    GameObject proj = Instantiate(bullet, direction.position, direction.rotation) as GameObject;
+                    Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
+                    rb.velocity = direction.transform.right * fireSpeed;
+                    canShoot = false;
+                    ammo -= 1;
+                }
                 animator.SetBool("Shooting", true);
-                Invoke("ChangeBool", 0.5f);
+                Invoke("ChangeBool", 0.4f);
 
             }
 
@@ -56,5 +61,9 @@ public class PlayerAbilities : MonoBehaviour
 
     public void SetIsDead(bool value) {
         isDead = value;
+    }
+    public void GetAmmo(int amount)
+    {
+        ammo += amount;
     }
 }

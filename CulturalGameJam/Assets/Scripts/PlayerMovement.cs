@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float speed = 5f;
     [SerializeField] public float jumpf = 5f;
     private bool grounded;
+    private bool hasDoubleJump = false;
     private bool isDead = false;
     [SerializeField] protected Animator animator;
 
@@ -35,9 +36,12 @@ public class PlayerMovement : MonoBehaviour
                 transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
 
-            if (Input.GetButtonDown("Jump") && grounded) {
+            if (Input.GetButtonDown("Jump") && (grounded || hasDoubleJump)) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpf);
-                grounded = false;
+                if (grounded)
+                    grounded = false;
+                else if (hasDoubleJump)
+                    hasDoubleJump = false;
                 animator.SetBool("Jumping", true);
             }
         }
@@ -58,6 +62,12 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "ground") {
             grounded = false;
         }
+    }
+
+    public void AddJump()
+    {
+        hasDoubleJump = true;
+
     }
 
     public void SetIsDead(bool value) {

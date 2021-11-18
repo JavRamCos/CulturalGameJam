@@ -1,7 +1,67 @@
 fileFormatVersion: 2
 guid: 42b5f9854797f9644977ba3c45354eb5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -852315096150392099
+    second: Ix_Player_00_0
+  - first:
+      213: -5350426040583304589
+    second: Ix_Player_00_1
+  - first:
+      213: 8136303509657990556
+    second: Ix_Player_00_2
+  - first:
+      213: -8546418823753345320
+    second: Ix_Player_00_3
+  - first:
+      213: -8589807732961504253
+    second: Ix_Player_00_4
+  - first:
+      213: 3013353790102212238
+    second: Ix_Player_00_5
+  - first:
+      213: 4430088576156494758
+    second: Ix_Player_00_6
+  - first:
+      213: 6856533413620174491
+    second: Ix_Player_00_7
+  - first:
+      213: -7761521077824845268
+    second: Ix_Player_00_8
+  - first:
+      213: 6399735868549700783
+    second: Ix_Player_00_9
+  - first:
+      213: -7944804362013943664
+    second: Ix_Player_00_10
+  - first:
+      213: 1824099576327034092
+    second: Ix_Player_00_11
+  - first:
+      213: 646345927419884367
+    second: Ix_Player_00_12
+  - first:
+      213: 6299732346415129472
+    second: Ix_Player_00_13
+  - first:
+      213: -4465278823559171424
+    second: Ix_Player_00_14
+  - first:
+      213: 2938774230904678247
+    second: Ix_Player_00_15
+  - first:
+      213: -7192323091807595492
+    second: Ix_Player_00_16
+  - first:
+      213: 1769829118915958805
+    second: Ix_Player_00_17
+  - first:
+      213: 5538025129628352420
+    second: Ix_Player_00_18
+  - first:
+      213: 1520821102534414566
+    second: Ix_Player_00_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +101,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +135,453 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ix_Player_00_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 128
+        width: 44
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2c0419fe7fb24f0800000000000000
+      internalID: -852315096150392099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 128
+        width: 40
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a48062dd77fb5b0800000000000000
+      internalID: -5350426040583304589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 128
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95bded1fe4f9e070800000000000000
+      internalID: 8136303509657990556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 128
+        width: 40
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d658745c55056980800000000000000
+      internalID: -8546418823753345320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_4
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 128
+        width: 42
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3041deba06fdac880800000000000000
+      internalID: -8589807732961504253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_5
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 128
+        width: 41
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e8e918e4591d920800000000000000
+      internalID: 3013353790102212238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_6
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 128
+        width: 36
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6abe251a616da7d30800000000000000
+      internalID: 4430088576156494758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_7
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 128
+        width: 39
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e4d6defcc472f50800000000000000
+      internalID: 6856533413620174491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_8
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 64
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a0b87b3b9894490800000000000000
+      internalID: -7761521077824845268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_9
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 64
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac1b3d7ddd60d850800000000000000
+      internalID: 6399735868549700783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_10
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 64
+        width: 33
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0985f20b6826eb190800000000000000
+      internalID: -7944804362013943664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_11
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 64
+        width: 33
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4d9e176e0805910800000000000000
+      internalID: 1824099576327034092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 48
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43f1ed423848f800800000000000000
+      internalID: 646345927419884367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_13
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 48
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083ac1011352d6750800000000000000
+      internalID: 6299732346415129472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_14
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 0
+        width: 47
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a27eaa61942802c0800000000000000
+      internalID: -4465278823559171424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_15
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 53
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767252cb79f98c820800000000000000
+      internalID: 2938774230904678247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_16
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 49
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1418fa214cbf2c90800000000000000
+      internalID: -7192323091807595492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_17
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 48
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 518d02ae432bf8810800000000000000
+      internalID: 1769829118915958805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_18
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 0
+        width: 47
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af3fa083840bdc40800000000000000
+      internalID: 5538025129628352420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ix_Player_00_19
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 51
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e05b7f2cba0b1510800000000000000
+      internalID: 1520821102534414566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

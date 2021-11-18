@@ -31,7 +31,7 @@ public class PlayerObjects : MonoBehaviour
                 cc.ActivateCollectibleDialogue();
             }
         } else if(collision.gameObject.tag == "Ammo") {
-            //Playerbilities.instance.AddAmmo();
+            PlayerAbilities.instance.GetAmmo(5);
             Destroy(collision.gameObject);
         } else if (collision.gameObject.tag == "Health") {
             PlayerHealth.instance.receiveHealth(1);
@@ -43,6 +43,7 @@ public class PlayerObjects : MonoBehaviour
             PlayerPrefs.SetInt("HasPluma", 1);
             //Destroy(collision.gameObject);
         } else if (collision.gameObject.tag == "Pelota") {
+            PlayerMovement.instance.AddJump();
             PlayerPrefs.SetInt("HasPelota", 1);
             //Destroy(collision.gameObject);
         } else if (collision.gameObject.name == "TutorialEnd") {
