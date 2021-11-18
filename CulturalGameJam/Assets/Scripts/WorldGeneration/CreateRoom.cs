@@ -20,10 +20,16 @@ public class CreateRoom : MonoBehaviour
     public float minY;
     public bool stop;
 
+    public GameObject[] world_items;
+
     public LayerMask room;
 
     private int dCount;
 
+
+    bool spwn = false;
+    public int plumaCount = 0;
+    public int countLim = 2;
     
 
     // Start is called before the first frame update
@@ -78,6 +84,19 @@ public class CreateRoom : MonoBehaviour
                 {
                     direccion = 5;
                 }
+
+                int rand_item = Random.Range(0, 2);
+                if(rand_item == 0 && spwn == false)
+                {
+                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    spwn = true;
+                }
+                else if(rand_item == 1 && plumaCount < countLim)
+                {
+                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    plumaCount += 1;
+                    //Debug.Log("PLUMA");
+                }
             }
             else
             {
@@ -98,11 +117,25 @@ public class CreateRoom : MonoBehaviour
                 Instantiate(rooms[rand], transform.position, Quaternion.identity);
 
                 direccion = Random.Range(3, 6);
+
+                int rand_item = Random.Range(0, 2);
+                if (rand_item == 0 && spwn == false)
+                {
+                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    spwn = true;
+                }
+                else if (rand_item == 1 && plumaCount < countLim)
+                {
+                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    plumaCount += 1;
+                    //Debug.Log("PLUMA");
+                }
             }
             else
             {
                 direccion = 5;
             }
+
 
         }
         if (direccion == 5)//Abajo
@@ -121,6 +154,19 @@ public class CreateRoom : MonoBehaviour
                     {
                         roomDetection[0].GetComponent<RoomType>().DestroyRoom();
                         Instantiate(rooms[3], transform.position, Quaternion.identity);
+
+                        int rand_item = Random.Range(0, 2);
+                        if (rand_item == 0 && spwn == false)
+                        {
+                            Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            spwn = true;
+                        }
+                        else if (rand_item == 1 && plumaCount < countLim)
+                        {
+                            Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            plumaCount += 1;
+                            //Debug.Log("PLUMA");
+                        }
                     }
                     else
                     {
@@ -132,6 +178,19 @@ public class CreateRoom : MonoBehaviour
                             randomBottom = 1;
                         }
                         Instantiate(rooms[randomBottom], transform.position, Quaternion.identity);
+
+                        int rand_item = Random.Range(0, 2);
+                        if (rand_item == 0 && spwn == false)
+                        {
+                            Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            spwn = true;
+                        }
+                        else if (rand_item == 1 && plumaCount < countLim)
+                        {
+                            Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            plumaCount += 1;
+                            //Debug.Log("PLUMA");
+                        }
                     }
 
 
@@ -148,6 +207,7 @@ public class CreateRoom : MonoBehaviour
             }
             else
             {
+                Instantiate(playerSpawn[1], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
                 stop = true;
             }
 
