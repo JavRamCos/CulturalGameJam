@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private bool hasDoubleJump = false;
     private bool isDead = false;
     [SerializeField] protected Animator animator;
+    private bool isDashing = false;
+    public float dashForce = 15f;
+    private float dashStartTimer = 0.25f;
+    private float dashTimer;
+    private bool hasDash = true;
 
     //[SerializeField] private Animator animator;
 
@@ -30,10 +35,10 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(movement.x * speed, rb.velocity.y);
 
             if (movement.x > 0) {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
             if (movement.x < 0) {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
 
             if (Input.GetButtonDown("Jump") && (grounded || hasDoubleJump)) {
@@ -44,7 +49,25 @@ public class PlayerMovement : MonoBehaviour
                     hasDoubleJump = false;
                 animator.SetBool("Jumping", true);
             }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && hasDash && movement.x != 0)
+            {
+                isDashing = true;
+                dashTimer = dashStartTimer;
+                rb.velocity = Vector2.zero;
+            }
+            if (isDashing)
+            {
+                rb.velocity = transform.right * dashForce;
+                dashTimer -= Time.deltaTime;
+                if(dashTimer <= 0)
+                {
+                    isDashing = false;
+                    //hasDash = false;
+                }
+            }
         }
+
+        
 
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
@@ -67,6 +90,11 @@ public class PlayerMovement : MonoBehaviour
     public void AddJump()
     {
         hasDoubleJump = true;
+
+    }
+    public void AddDash()
+    {
+        hasDash = true;
 
     }
 
