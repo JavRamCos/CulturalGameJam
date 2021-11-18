@@ -138,8 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4c0f79dded081418ab7a0451e8a95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 500
+  speed: 600
   nextWaypointDistance: 3
   chase: 0
   starttingPoint: {fileID: 0}

@@ -16,11 +16,12 @@ public class ChaseAIPatrol : MonoBehaviour
     public Transform groundCheckPos;
     public LayerMask groundLayer;
     public Collider2D bodyCollider;
-    public Transform player;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         mustPatrol = true;
     }
 
@@ -33,8 +34,8 @@ public class ChaseAIPatrol : MonoBehaviour
         }
         if (chase)
         {
-            if (player.position.x > transform.position.x && transform.localScale.x < 0
-                || player.position.x < transform.position.x && transform.localScale.x > 0)
+            if (player.transform.position.x > transform.position.x && transform.localScale.x < 0
+                || player.transform.position.x < transform.position.x && transform.localScale.x > 0)
             {
                 Flip();
             }

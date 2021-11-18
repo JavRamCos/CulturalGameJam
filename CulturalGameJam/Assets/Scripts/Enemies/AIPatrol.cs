@@ -17,12 +17,14 @@ public class AIPatrol : MonoBehaviour
     public Transform groundCheckPos;
     public LayerMask groundLayer;
     public Collider2D bodyCollider;
-    public Transform player, shootPos, shootPos2, limitRange;
+    public Transform shootPos, shootPos2, limitRange;
     public GameObject bullet;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         radius = 5f;
         mustPatrol = true;
     }
@@ -36,15 +38,15 @@ public class AIPatrol : MonoBehaviour
         }
         if (fire)
         {
-            if (player.position.x > transform.position.x && transform.localScale.x < 0
-                || player.position.x < transform.position.x && transform.localScale.x > 0)
+            if (player.transform.position.x > transform.position.x && transform.localScale.x < 0
+                || player.transform.position.x < transform.position.x && transform.localScale.x > 0)
             {
                 Flip();
             }
             mustPatrol = false;
             rb.velocity = Vector2.zero;
             Transform direction = shootPos;
-            if ((player.position.y > limitRange.position.y))
+            if ((player.transform.position.y > limitRange.position.y))
             {
                 if (canShoot)
                 {
@@ -52,13 +54,13 @@ public class AIPatrol : MonoBehaviour
                     StartCoroutine(Shoot(45f, 90f, 5, direction));
                 }
             }
-            else if (player.position.x > transform.position.x)
+            else if (player.transform.position.x > transform.position.x)
             {
                 if (canShoot)
                 {
                     StartCoroutine(Shoot(45f, 90f, 3, direction));
                 }
-            }else if (player.position.x < transform.position.x) {
+            }else if (player.transform.position.x < transform.position.x) {
                 if (canShoot)
                 {
                     StartCoroutine(Shoot(45f, 0f, 3, direction));
