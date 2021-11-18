@@ -17,6 +17,7 @@ TagManager:
   - Pluma
   - BossProjectile
   - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -25,10 +26,10 @@ TagManager:
   - Water
   - UI
   - Room
-  - 
-  - 
+  - Enemy
+  - Projectile
   - Obstacle
-  - 
+  - EnemyProjectile
   - 
   - 
   - 
