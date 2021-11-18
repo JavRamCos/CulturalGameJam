@@ -38,14 +38,14 @@ public class PlayerObjects : MonoBehaviour
             Destroy(collision.gameObject);
         } else if(collision.gameObject.tag == "Veneno") {
             PlayerPrefs.SetInt("HasVeneno", 1);
-            //Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
         } else if(collision.gameObject.tag == "Pluma") {
             PlayerPrefs.SetInt("HasPluma", 1);
-            //Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
         } else if (collision.gameObject.tag == "Pelota") {
             PlayerMovement.instance.AddJump();
             PlayerPrefs.SetInt("HasPelota", 1);
-            //Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
         } else if (collision.gameObject.name == "TutorialEnd") {
             TutorialController tc = GameObject.FindGameObjectWithTag("GameController").GetComponent<TutorialController>();
             if(tc != null) {
