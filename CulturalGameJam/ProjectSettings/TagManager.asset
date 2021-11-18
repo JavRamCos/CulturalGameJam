@@ -18,6 +18,7 @@ TagManager:
   - BossProjectile
   - Boss
   - Enemy
+  - Telerporter
   layers:
   - Default
   - TransparentFX
