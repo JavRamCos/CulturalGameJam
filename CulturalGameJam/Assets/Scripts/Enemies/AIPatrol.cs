@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AIPatrol : MonoBehaviour
 {
-    public float speed, timeBTWShots, shootSpeed, radius;
+    public static AIPatrol instance;
+    public float speed, timeBTWShots, shootSpeed, radius, frozenTime;
     [HideInInspector]
 
     public bool mustPatrol;
@@ -12,6 +13,8 @@ public class AIPatrol : MonoBehaviour
 
     public bool fire = false;
     public bool canShoot = true;
+
+    public bool frozen;
 
     public Rigidbody2D rb;
     public Transform groundCheckPos;
@@ -24,52 +27,60 @@ public class AIPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         player = GameObject.FindGameObjectWithTag("Player");
         radius = 5f;
         mustPatrol = true;
+        frozen = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mustPatrol)
+        if (!frozen)
         {
-            Patrol();
-        }
-        if (fire)
-        {
-            if (player.transform.position.x > transform.position.x && transform.localScale.x < 0
-                || player.transform.position.x < transform.position.x && transform.localScale.x > 0)
+            if (mustPatrol)
             {
-                Flip();
+                Patrol();
             }
-            mustPatrol = false;
-            rb.velocity = Vector2.zero;
-            Transform direction = shootPos;
-            if ((player.transform.position.y > limitRange.position.y))
+            if (fire)
             {
-                if (canShoot)
+                if (player.transform.position.x > transform.position.x && transform.localScale.x < 0
+                    || player.transform.position.x < transform.position.x && transform.localScale.x > 0)
                 {
-                    direction = shootPos2;
-                    StartCoroutine(Shoot(45f, 90f, 5, direction));
+                    Flip();
+                }
+                mustPatrol = false;
+                rb.velocity = Vector2.zero;
+                Transform direction = shootPos;
+                if ((player.transform.position.y > limitRange.position.y))
+                {
+                    if (canShoot)
+                    {
+                        direction = shootPos2;
+                        StartCoroutine(Shoot(45f, 90f, 5, 0f, direction));
+                    }
+                }
+                else if (player.transform.position.x > transform.position.x)
+                {
+                    if (canShoot)
+                    {
+                        StartCoroutine(Shoot(45f, 90f, 3, 0f, direction));
+                    }
+                }else if (player.transform.position.x < transform.position.x) {
+                    if (canShoot)
+                    {
+                        StartCoroutine(Shoot(45f, 0f, 3, 90f, direction));
+                    }
                 }
             }
-            else if (player.transform.position.x > transform.position.x)
+            else
             {
-                if (canShoot)
-                {
-                    StartCoroutine(Shoot(45f, 90f, 3, direction));
-                }
-            }else if (player.transform.position.x < transform.position.x) {
-                if (canShoot)
-                {
-                    StartCoroutine(Shoot(45f, 0f, 3, direction));
-                }
+                mustPatrol = true;
             }
-        }
-        else
-        {
-            mustPatrol = true;
         }
     }
     private void FixedUpdate()
@@ -96,7 +107,7 @@ public class AIPatrol : MonoBehaviour
         mustPatrol = true;
     }
 
-    IEnumerator Shoot(float angleStep, float angle, int numberOfProjectiles, Transform direction)
+    IEnumerator Shoot(float angleStep, float angle, int numberOfProjectiles, float angleRotation, Transform direction)
     {
         canShoot = false;
         for (int i = 0; i <= numberOfProjectiles - 1; i++)
@@ -107,14 +118,23 @@ public class AIPatrol : MonoBehaviour
             Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
             Vector2 projectileMoveDirection = (projectileVector - (Vector2)direction.position).normalized * shootSpeed;
 
-            var proj = Instantiate(bullet, direction.position, Quaternion.identity);
+            var proj = Instantiate(bullet, direction.position, Quaternion.Euler(new Vector3(0f, 0f, angleRotation)));
             proj.GetComponent<Rigidbody2D>().velocity =
                 new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
 
             angle -= angleStep;
+            angleRotation += angleStep;
 
         }
         yield return new WaitForSeconds(timeBTWShots);
         canShoot = true;
+    }
+    public IEnumerator Frozen()
+    {
+        frozen = true;
+        Debug.Log(frozen);
+        yield return new WaitForSeconds(frozenTime);
+        frozen = false;
+        Debug.Log(frozen);
     }
 }

@@ -5,10 +5,12 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-
+    public static EnemyAI instance;
     private GameObject target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
+    public float frozenTime;
+    public bool frozen;
 
     public bool chase = false;
     public Transform starttingPoint;
@@ -25,6 +27,11 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        frozen = false;
         target = GameObject.FindGameObjectWithTag("Player");
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -58,37 +65,48 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (path == null)
-            return;
-        if (currentWaypoint >= path.vectorPath.Count)
+        if (!frozen)
         {
-            reachedEndofPath = true;
-            return;
-        }
-        else
-        {
-            reachedEndofPath = false;
-        }
+            if (path == null)
+                return;
+            if (currentWaypoint >= path.vectorPath.Count)
+            {
+                reachedEndofPath = true;
+                return;
+            }
+            else
+            {
+                reachedEndofPath = false;
+            }
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 force = direction * speed * Time.deltaTime;
 
-        rb.AddForce(force);
+            rb.AddForce(force);
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
-        if (distance < nextWaypointDistance)
-        {
-            currentWaypoint++;
+            if (distance < nextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+
+            if (force.x >= 0.01f)
+            {
+                enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else if (rb.velocity.x <= -0.01f)
+            {
+                enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+            }
         }
-
-        if (force.x >= 0.01f)
-        {
-            enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else if (rb.velocity.x <= -0.01f)
-        {
-            enemyGFX.localScale = new Vector3(1f, 1f, 1f);
-        }
+    }
+    public IEnumerator Frozen()
+    {
+        frozen = true;
+        Debug.Log(frozen);
+        yield return new WaitForSeconds(frozenTime);
+        frozen = false;
+        Debug.Log(frozen);
     }
 }

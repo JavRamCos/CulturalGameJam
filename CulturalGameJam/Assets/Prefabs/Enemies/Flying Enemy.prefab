@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4820128232570039737}
   - component: {fileID: 4820128232570039736}
   - component: {fileID: 4820128232570039739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ChaseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4820128232838454461}
   - component: {fileID: 4820128232838454463}
   - component: {fileID: 4820128232838454460}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flying Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -140,6 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 600
   nextWaypointDistance: 3
+  frozenTime: 7
+  frozen: 0
   chase: 0
   starttingPoint: {fileID: 0}
   enemyGFX: {fileID: 4820128233018798403}
@@ -190,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820128233018798403}
   - component: {fileID: 4820128233018798400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 228-2288588_castlevania-4-bat-sprite-hd-png-download
   m_TagString: Untagged
   m_Icon: {fileID: 0}

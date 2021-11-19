@@ -83,16 +83,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+  frozenTime: 7
   mustPatrol: 0
   mustTurn: 0
   chase: 0
+  frozen: 0
   rb: {fileID: 6385241241102274538}
   groundCheckPos: {fileID: 6385241242162243618}
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   bodyCollider: {fileID: 7580863591675034591}
-  player: {fileID: 789165986257512550, guid: 38c980dd21fc2fe438a562ca8e372c99, type: 3}
 --- !u!50 &6385241241102274538
 Rigidbody2D:
   serializedVersion: 4
@@ -149,7 +150,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 6385241241102274537}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31d976350a0cd164299a4b5993d7ee2d, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

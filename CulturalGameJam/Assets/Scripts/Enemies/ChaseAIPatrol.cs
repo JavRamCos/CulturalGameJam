@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ChaseAIPatrol : MonoBehaviour
 {
-    public float speed;
+    public static ChaseAIPatrol instance;
+    public float speed, frozenTime;
     [HideInInspector]
 
     public bool mustPatrol;
     public bool mustTurn;
 
     public bool chase = false;
+    public bool frozen;
 
     public Rigidbody2D rb;
     public Transform groundCheckPos;
@@ -21,23 +23,31 @@ public class ChaseAIPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         player = GameObject.FindGameObjectWithTag("Player");
+        frozen = false;
         mustPatrol = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mustPatrol)
+        if (!frozen)
         {
-            Patrol();
-        }
-        if (chase)
-        {
-            if (player.transform.position.x > transform.position.x && transform.localScale.x < 0
-                || player.transform.position.x < transform.position.x && transform.localScale.x > 0)
+            if (mustPatrol)
             {
-                Flip();
+                Patrol();
+            }
+            if (chase)
+            {
+                if (player.transform.position.x > transform.position.x && transform.localScale.x < 0
+                    || player.transform.position.x < transform.position.x && transform.localScale.x > 0)
+                {
+                    Flip();
+                }
             }
         }
     }
@@ -63,5 +73,13 @@ public class ChaseAIPatrol : MonoBehaviour
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         speed *= -1;
         mustPatrol = true;
+    }
+    public IEnumerator Frozen()
+    {
+        frozen = true;
+        Debug.Log(frozen);
+        yield return new WaitForSeconds(frozenTime);
+        frozen = false;
+        Debug.Log(frozen);
     }
 }

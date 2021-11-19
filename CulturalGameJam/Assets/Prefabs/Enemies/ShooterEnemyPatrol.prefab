@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608277296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4602958351265152884}
@@ -215,20 +215,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  timeBTWShots: 2
-  shootSpeed: 3.5
+  timeBTWShots: 2.5
+  shootSpeed: 3
   radius: 0
+  frozenTime: 7
   mustPatrol: 0
   mustTurn: 0
   fire: 0
   canShoot: 1
+  frozen: 0
   rb: {fileID: 4602958351265152882}
   groundCheckPos: {fileID: 4602958352325138618}
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   bodyCollider: {fileID: 1029268683970284359}
-  player: {fileID: 789165986257512550, guid: 38c980dd21fc2fe438a562ca8e372c99, type: 3}
   shootPos: {fileID: 1029268684363328988}
   shootPos2: {fileID: 6105648170252114555}
   limitRange: {fileID: 1608277297}
@@ -289,7 +290,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 4602958351265152881}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31d976350a0cd164299a4b5993d7ee2d, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
