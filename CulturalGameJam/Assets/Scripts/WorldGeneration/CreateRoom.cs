@@ -30,7 +30,13 @@ public class CreateRoom : MonoBehaviour
     bool spwn = false;
     public int plumaCount = 0;
     public int countLim = 2;
-    
+
+    public GameObject next_Area;
+    public GameObject current_Area;
+    public GameObject prev_Area;
+
+    Teleporter teleport;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +44,23 @@ public class CreateRoom : MonoBehaviour
         int rndSpawnPoint = Random.Range(0, spawnPoints.Length);
         transform.position = spawnPoints[rndSpawnPoint].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
-        Instantiate(playerSpawn[0], new Vector2(transform.position.x, transform.position.y + 5), Quaternion.identity);
+        if (playerSpawn[0].tag != "Player")
+        {
+            var newTele = Instantiate(playerSpawn[0], new Vector2(transform.position.x, transform.position.y + 5), Quaternion.identity);
+            newTele.transform.parent = current_Area.transform;
+
+            teleport = newTele.GetComponent<Teleporter>();
+            teleport.destination = prev_Area.transform.GetChild(0).transform;
+
+        }
+        else
+        {
+            Instantiate(playerSpawn[0], new Vector2(transform.position.x, transform.position.y + 5), Quaternion.identity);
+        }
+        
 
         direccion = Random.Range(1, 6);
+
     }
 
     // Update is called once per frame
@@ -207,7 +227,13 @@ public class CreateRoom : MonoBehaviour
             }
             else
             {
-                Instantiate(playerSpawn[1], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                var newTele = Instantiate(playerSpawn[1], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                newTele.transform.parent = gameObject.transform;
+
+                teleport = newTele.GetComponent<Teleporter>();
+
+                teleport.destination = next_Area.transform.GetChild(next_Area.transform.childCount - 1).transform;
+
                 stop = true;
             }
 

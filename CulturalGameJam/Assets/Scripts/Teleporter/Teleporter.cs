@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    [SerializeField] private Transform destination; 
+    [SerializeField] public Transform destination;
 
     public Transform GetDestination()
     {
