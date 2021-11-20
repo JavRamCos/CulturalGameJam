@@ -11,6 +11,9 @@ public class ChaseAIPatrol : MonoBehaviour
     public bool mustPatrol;
     public bool mustTurn;
 
+    public int health;
+    public int maxHealth;
+
     public bool chase = false;
     public bool frozen;
 
@@ -20,16 +23,21 @@ public class ChaseAIPatrol : MonoBehaviour
     public Collider2D bodyCollider;
     private GameObject player;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
         frozen = false;
         mustPatrol = true;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -74,12 +82,29 @@ public class ChaseAIPatrol : MonoBehaviour
         speed *= -1;
         mustPatrol = true;
     }
-    public IEnumerator Frozen()
+    IEnumerator Frozen()
     {
         frozen = true;
-        Debug.Log(frozen);
         yield return new WaitForSeconds(frozenTime);
         frozen = false;
-        Debug.Log(frozen);
+    }
+
+    public void takeHit(int damage)
+    {
+        if (PlayerPrefs.GetInt("HasVeneno") == 1)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            if (!frozen)
+            {
+                StartCoroutine(Frozen());
+            }
+        }
     }
 }

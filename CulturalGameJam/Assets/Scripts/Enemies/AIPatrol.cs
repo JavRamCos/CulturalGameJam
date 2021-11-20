@@ -11,6 +11,9 @@ public class AIPatrol : MonoBehaviour
     public bool mustPatrol;
     public bool mustTurn;
 
+    public int health;
+    public int maxHealth;
+
     public bool fire = false;
     public bool canShoot = true;
 
@@ -24,17 +27,22 @@ public class AIPatrol : MonoBehaviour
     public GameObject bullet;
     private GameObject player;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
         radius = 5f;
         mustPatrol = true;
         frozen = false;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -129,12 +137,28 @@ public class AIPatrol : MonoBehaviour
         yield return new WaitForSeconds(timeBTWShots);
         canShoot = true;
     }
-    public IEnumerator Frozen()
+    IEnumerator Frozen()
     {
         frozen = true;
-        Debug.Log(frozen);
         yield return new WaitForSeconds(frozenTime);
         frozen = false;
-        Debug.Log(frozen);
+    }
+    public void takeHit(int damage)
+    {
+        if (PlayerPrefs.GetInt("HasVeneno") == 1)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            if (!frozen)
+            {
+                StartCoroutine(Frozen());
+            }
+        }
     }
 }

@@ -12,6 +12,9 @@ public class EnemyAI : MonoBehaviour
     public float frozenTime;
     public bool frozen;
 
+    public int health;
+    public int maxHealth;
+
     public bool chase = false;
     public Transform starttingPoint;
 
@@ -24,17 +27,22 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         frozen = false;
         target = GameObject.FindGameObjectWithTag("Player");
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        health = maxHealth;
 
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
@@ -101,12 +109,28 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
-    public IEnumerator Frozen()
+    IEnumerator Frozen()
     {
         frozen = true;
-        Debug.Log(frozen);
         yield return new WaitForSeconds(frozenTime);
         frozen = false;
-        Debug.Log(frozen);
+    }
+    public void takeHit(int damage)
+    {
+        if (PlayerPrefs.GetInt("HasVeneno") == 1)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            if (!frozen)
+            {
+                StartCoroutine(Frozen());
+            }
+        }
     }
 }

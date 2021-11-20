@@ -24,6 +24,7 @@ public class PlayerTeleport : MonoBehaviour
         if (collision.CompareTag("Telerporter"))
         {
             currentTeleporter = collision.gameObject;
+            currentTeleporter.GetComponent < Teleporter>().EnaibleGreenHalo();
         }
     }
 
@@ -33,7 +34,8 @@ public class PlayerTeleport : MonoBehaviour
         {
             if (collision.gameObject == currentTeleporter)
             {
-                currentTeleporter = collision.gameObject;
+                currentTeleporter.GetComponent<Teleporter>().DisableGreenHalo();
+                currentTeleporter = null;
             }
         }
     }

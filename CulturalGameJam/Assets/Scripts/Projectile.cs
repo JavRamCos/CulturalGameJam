@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour {
                 ChaseAIPatrol enemy = other.gameObject.GetComponent<ChaseAIPatrol>();
                 if (enemy != null)
                 {
-                    enemy.StartCoroutine(enemy.Frozen());
+                    enemy.takeHit(2);
                 }
             }
             else if (other.gameObject.name.Contains("EnemyPatrol")
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour {
                 AIPatrol enemy = other.gameObject.GetComponent<AIPatrol>();
                 if (enemy != null)
                 {
-                    enemy.StartCoroutine(enemy.Frozen());
+                    enemy.takeHit(2);
                 }
             }
             else if (other.gameObject.name.Contains("Flying Enemy"))
@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour {
                 EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
                 if (enemy != null)
                 {
-                    enemy.StartCoroutine(enemy.Frozen());
+                    enemy.takeHit(2);
                 }
             }
         }
