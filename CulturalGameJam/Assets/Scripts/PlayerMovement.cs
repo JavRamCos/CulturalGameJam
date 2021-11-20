@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float jumpf = 5f;
     private bool grounded;
     private bool hasDoubleJump = false;
+    private bool canDouleJump = false;
     private bool isDead = false;
     [SerializeField] protected Animator animator;
     private bool isDashing = false;
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float dashStartTimer = 0.25f;
     private float dashTimer;
     private bool hasDash = true;
+    private float dashCooldown = 2f;
+    private bool canDash;
 
     //[SerializeField] private Animator animator;
 
@@ -41,16 +44,17 @@ public class PlayerMovement : MonoBehaviour
                 transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
 
-            if (Input.GetButtonDown("Jump") && (grounded || hasDoubleJump)) {
+            if (Input.GetButtonDown("Jump") && (grounded || canDouleJump)) {
                 rb.velocity = new Vector2(rb.velocity.x, jumpf);
                 if (grounded)
                     grounded = false;
-                else if (hasDoubleJump)
-                    hasDoubleJump = false;
+                else if (canDouleJump)
+                    canDouleJump = false;
                 animator.SetBool("Jumping", true);
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift) && hasDash && movement.x != 0)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && hasDash && movement.x != 0 && canDash)
             {
+                canDash = false;
                 isDashing = true;
                 dashTimer = dashStartTimer;
                 rb.velocity = Vector2.zero;
@@ -62,7 +66,15 @@ public class PlayerMovement : MonoBehaviour
                 if(dashTimer <= 0)
                 {
                     isDashing = false;
-                    //hasDash = false;
+                }
+            }
+            if (!canDash)
+            {
+                dashCooldown -= Time.deltaTime;
+                if (dashCooldown <= 0f)
+                {
+                    canDash = true;
+                    dashCooldown = 2f;
                 }
             }
         }
@@ -77,6 +89,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "OneSidedSpike" || collision.gameObject.tag == "AllSidedSpike")
         {
             grounded = true;
+            if (hasDoubleJump)
+                canDouleJump = true;
             animator.SetBool("Jumping", false);
         }
     }
@@ -90,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddJump()
     {
         hasDoubleJump = true;
+        canDouleJump = true;
 
     }
     public void AddDash()
