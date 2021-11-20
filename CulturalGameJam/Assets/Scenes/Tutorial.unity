@@ -12918,6 +12918,7 @@ MonoBehaviour:
   dashSound: {fileID: 8300000, guid: 399bd219690a6d645a18ad0255465077, type: 3}
   playerHitSound: {fileID: 8300000, guid: 01e872f4a05954148baf4f5a74a51027, type: 3}
   enemyHitSound: {fileID: 8300000, guid: eb4f372d6363b3a4e8b03e0009701e6c, type: 3}
+  powerUpSound: {fileID: 8300000, guid: e4b2cd30a0981954198a535697dba676, type: 3}
 --- !u!4 &2047786454
 Transform:
   m_ObjectHideFlags: 0

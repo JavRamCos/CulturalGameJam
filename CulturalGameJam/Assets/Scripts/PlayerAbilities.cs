@@ -37,6 +37,10 @@ public class PlayerAbilities : MonoBehaviour
                     rb.velocity = direction.transform.right * fireSpeed;
                     canShoot = false;
                     ammo -= 1;
+                    SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+                    if(sc != null) {
+                        sc.PlaySound(2);
+                    }
                 }
                 animator.SetBool("Shooting", true);
                 Invoke("ChangeBool", 0.4f);

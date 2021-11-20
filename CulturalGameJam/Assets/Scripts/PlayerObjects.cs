@@ -33,26 +33,46 @@ public class PlayerObjects : MonoBehaviour
         } else if(collision.gameObject.tag == "Ammo") {
             PlayerAbilities.instance.GetAmmo(5);
             Destroy(collision.gameObject);
+            SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+            if(sc != null) {
+                sc.PlaySound(6);
+            }
         } else if (collision.gameObject.tag == "Health") {
             PlayerHealth.instance.receiveHealth(1);
             Destroy(collision.gameObject);
+            SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+            if (sc != null) {
+                sc.PlaySound(6);
+            }
         } else if(collision.gameObject.tag == "Veneno") {
             PlayerPrefs.SetInt("HasVeneno", 1);
             Destroy(collision.gameObject);
+            SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+            if (sc != null) {
+                sc.PlaySound(6);
+            }
         } else if(collision.gameObject.tag == "Pluma") {
             PlayerPrefs.SetInt("HasPluma", 1);
             Destroy(collision.gameObject);
+            SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+            if (sc != null) {
+                sc.PlaySound(6);
+            }
         } else if (collision.gameObject.tag == "Pelota") {
             PlayerMovement.instance.AddJump();
             PlayerPrefs.SetInt("HasPelota", 1);
             Destroy(collision.gameObject);
+            SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+            if (sc != null) {
+                sc.PlaySound(6);
+            }
         } else if (collision.gameObject.name == "TutorialEnd") {
             TutorialController tc = GameObject.FindGameObjectWithTag("GameController").GetComponent<TutorialController>();
             if(tc != null) {
                 tc.EndTutorial();
             }
         } else if (collision.gameObject.tag == "BossProjectile") {
-            PlayerHealth.instance.takeHit(1);
+            PlayerHealth.instance.takeHit(4);
             Destroy(collision.gameObject);
         } else if (collision.gameObject.tag == "River") {
             TutorialController tc = GameObject.FindGameObjectWithTag("GameController").GetComponent<TutorialController>();

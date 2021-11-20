@@ -45,6 +45,10 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if (Input.GetButtonDown("Jump") && (grounded || canDouleJump)) {
+                SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+                if (sc != null) {
+                    sc.PlaySound(1);
+                }
                 rb.velocity = new Vector2(rb.velocity.x, jumpf);
                 if (grounded)
                     grounded = false;
@@ -54,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.LeftShift) && hasDash && movement.x != 0 && canDash)
             {
+                SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+                if (sc != null) {
+                    sc.PlaySound(3);
+                }
                 canDash = false;
                 isDashing = true;
                 dashTimer = dashStartTimer;

@@ -30,6 +30,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if(canGetDamage == true) {
             health -= hp;
+            SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+            if (sc != null) {
+                sc.PlaySound(4);
+            }
             canGetDamage = false;
             if (health <= 0) {
                 animator.SetBool("Dead", true);
