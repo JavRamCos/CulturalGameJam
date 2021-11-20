@@ -8,6 +8,11 @@ public class SoundsController : MonoBehaviour
 
 	[SerializeField] private AudioSource musicSource;
 	[SerializeField] private AudioSource vfxSource;
+	[SerializeField] private AudioClip jumpingSound;
+	[SerializeField] private AudioClip throwingSound;
+	[SerializeField] private AudioClip dashSound;
+	[SerializeField] private AudioClip playerHitSound;
+	[SerializeField] private AudioClip enemyHitSound;
 
 	private void Awake() {
 		if (instance == null) {
@@ -22,6 +27,21 @@ public class SoundsController : MonoBehaviour
 
 	public void PlaySound(int sound) {
 		switch (sound) {
+			case 1:
+				vfxSource.PlayOneShot(jumpingSound);
+				break;
+			case 2:
+				vfxSource.PlayOneShot(throwingSound);
+				break;
+			case 3:
+				vfxSource.PlayOneShot(dashSound);
+				break;
+			case 4:
+				vfxSource.PlayOneShot(playerHitSound);
+				break;
+			case 5:
+				vfxSource.PlayOneShot(enemyHitSound);
+				break;
 			default:
 				//vfxSource.PlayOneShot();
 				break;
