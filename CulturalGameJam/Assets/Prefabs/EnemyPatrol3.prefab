@@ -51,18 +51,26 @@ MonoBehaviour:
   speed: 50
   timeBTWShots: 0
   shootSpeed: 0
+  radius: 0
+  frozenTime: 0
   mustPatrol: 0
   mustTurn: 0
+  health: 0
+  maxHealth: 0
   fire: 0
+  canShoot: 1
+  frozen: 0
   rb: {fileID: 3967182592887363660}
   groundCheckPos: {fileID: 3967182593983020932}
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   bodyCollider: {fileID: 479087852580383865}
-  player: {fileID: 0}
   shootPos: {fileID: 0}
+  shootPos2: {fileID: 0}
+  limitRange: {fileID: 0}
   bullet: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!50 &3967182592887363660
 Rigidbody2D:
   serializedVersion: 4
@@ -206,7 +214,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
