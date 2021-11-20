@@ -33,8 +33,8 @@ public class LaunchProjectiles : MonoBehaviour
 
     void SpawnProjectiles()
     {
-        float angleStep = 45f;
-        float angle = 90f;
+        float angleStep = 360f / numberOfProjectiles;
+        float angle = 0f;
 
         for(int i = 0; i <= numberOfProjectiles - 1; i++)
         {
@@ -50,7 +50,7 @@ public class LaunchProjectiles : MonoBehaviour
 
             Debug.Log(projectileMoveDirection);
 
-            angle -= angleStep;
+            angle += angleStep;
 
         }
     }

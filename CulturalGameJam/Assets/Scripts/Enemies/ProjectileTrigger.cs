@@ -30,7 +30,7 @@ public class ProjectileTrigger : MonoBehaviour
                 ChaseAIPatrol enemy = collision.gameObject.GetComponent<ChaseAIPatrol>();
                 if (enemy != null)
                 {
-                    //enemy.StartCoroutine(enemy.Frozen());
+                    enemy.StartCoroutine(enemy.Frozen());
                 }
             }
             else if (collision.gameObject.name.Contains("EnemyPatrol")

@@ -13,7 +13,8 @@ public class PlayerTeleport : MonoBehaviour
         {
             if (currentTeleporter != null)
             {
-                transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position; 
+                Vector3 offset = new Vector3(0, 0.5f, 0); 
+                transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position + offset; 
             }
         }
     }
