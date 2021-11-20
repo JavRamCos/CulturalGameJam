@@ -18,12 +18,12 @@ public class PlayerObjects : MonoBehaviour
         if(collision.gameObject.tag == "OneSidedSpike") {
             OneSidedSpike oss = collision.gameObject.GetComponent<OneSidedSpike>();
             if(oss != null) {
-                PlayerHealth.instance.takeHit(1);
+                PlayerHealth.instance.takeHit(1, collision);
             }
         } else if(collision.gameObject.tag == "AllSidedSpike") {
             AllSidedSpike sc = collision.gameObject.GetComponent<AllSidedSpike>();
             if(sc != null) {
-                PlayerHealth.instance.takeHit(1);
+                PlayerHealth.instance.takeHit(1, collision);
             }
         } else if(collision.gameObject.tag == "Collectible") {
             CollectibleController cc = collision.gameObject.GetComponent<CollectibleController>();
@@ -72,12 +72,32 @@ public class PlayerObjects : MonoBehaviour
                 tc.EndTutorial();
             }
         } else if (collision.gameObject.tag == "BossProjectile") {
-            PlayerHealth.instance.takeHit(4);
+            PlayerHealth.instance.takeHit(4, collision);
             Destroy(collision.gameObject);
         } else if (collision.gameObject.tag == "River") {
             TutorialController tc = GameObject.FindGameObjectWithTag("GameController").GetComponent<TutorialController>();
             if(tc != null) {
                 tc.RepeatTutorial();
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "OneSidedSpike")
+        {
+            OneSidedSpike oss = collision.gameObject.GetComponent<OneSidedSpike>();
+            if (oss != null)
+            {
+                PlayerHealth.instance.takeHit(1, collision);
+            }
+        }
+        else if (collision.gameObject.tag == "AllSidedSpike")
+        {
+            AllSidedSpike sc = collision.gameObject.GetComponent<AllSidedSpike>();
+            if (sc != null)
+            {
+                PlayerHealth.instance.takeHit(1, collision);
             }
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4820128232570039737}
   - component: {fileID: 4820128232570039736}
   - component: {fileID: 4820128232570039739}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: ChaseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 14
+  m_Radius: 18
 --- !u!114 &4820128232570039739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,12 +138,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4c0f79dded081418ab7a0451e8a95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 600
-  nextWaypointDistance: 3
+  speed: 700
+  nextWaypointDistance: 1
   frozenTime: 7
   frozen: 0
   health: 0
-  maxHealth: 0
+  maxHealth: 2
   chase: 0
   starttingPoint: {fileID: 0}
   enemyGFX: {fileID: 4820128233018798403}
@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820128233018798403}
   - component: {fileID: 4820128233018798400}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: 228-2288588_castlevania-4-bat-sprite-hd-png-download
   m_TagString: Untagged
   m_Icon: {fileID: 0}

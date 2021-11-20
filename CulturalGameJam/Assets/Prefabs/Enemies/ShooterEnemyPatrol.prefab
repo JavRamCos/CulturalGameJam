@@ -222,7 +222,7 @@ MonoBehaviour:
   mustPatrol: 0
   mustTurn: 0
   health: 0
-  maxHealth: 0
+  maxHealth: 2
   fire: 0
   canShoot: 1
   frozen: 0

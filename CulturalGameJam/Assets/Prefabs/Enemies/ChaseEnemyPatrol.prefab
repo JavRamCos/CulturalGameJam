@@ -87,7 +87,7 @@ MonoBehaviour:
   mustPatrol: 0
   mustTurn: 0
   health: 0
-  maxHealth: 0
+  maxHealth: 2
   chase: 0
   frozen: 0
   rb: {fileID: 6385241241102274538}

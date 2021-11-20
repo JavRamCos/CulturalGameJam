@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour {
             PlayerHealth ph = other.gameObject.GetComponent<PlayerHealth>();
             if (ph != null)
             {
-                ph.takeHit(1);
+                ph.takeHitCol(1, other);
             }
         }
         else if (other.gameObject.tag == "Boss")

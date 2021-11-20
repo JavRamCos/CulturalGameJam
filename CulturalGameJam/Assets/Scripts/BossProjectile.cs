@@ -8,7 +8,7 @@ public class BossProjectile : MonoBehaviour
         if(collision.gameObject.tag == "Player") {
             PlayerHealth ph = collision.gameObject.GetComponent<PlayerHealth>();
             if(ph != null) {
-                ph.takeHit(1);
+                ph.takeHitCol(1, collision);
             }
         }
         Destroy(this.gameObject);

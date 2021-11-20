@@ -11,7 +11,7 @@ public class ProjectileTrigger : MonoBehaviour
             PlayerHealth ph = collision.gameObject.GetComponent<PlayerHealth>();
             if (ph != null)
             {
-                ph.takeHit(1);
+                ph.takeHit(1, collision);
             }
         }
         else if (collision.gameObject.tag == "Boss")
