@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 700
   nextWaypointDistance: 1
-  frozenTime: 7
+  frozenTime: 4
   frozen: 0
   health: 0
   maxHealth: 2
