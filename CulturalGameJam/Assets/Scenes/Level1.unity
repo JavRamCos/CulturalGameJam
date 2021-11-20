@@ -3424,7 +3424,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3619,6 +3619,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1395236895}
   vfxSource: {fileID: 1395236894}
+  jumpingSound: {fileID: 8300000, guid: a26718dcbf2ee284b951a454f5797e78, type: 3}
+  throwingSound: {fileID: 8300000, guid: ef56f0876b8231b488ee905a9e2aff9e, type: 3}
+  dashSound: {fileID: 8300000, guid: 399bd219690a6d645a18ad0255465077, type: 3}
+  playerHitSound: {fileID: 8300000, guid: 01e872f4a05954148baf4f5a74a51027, type: 3}
+  enemyHitSound: {fileID: 8300000, guid: eb4f372d6363b3a4e8b03e0009701e6c, type: 3}
+  powerUpSound: {fileID: 8300000, guid: e4b2cd30a0981954198a535697dba676, type: 3}
+  fireBallSound: {fileID: 8300000, guid: ae9a2654c6d407947a1406bceecbaafa, type: 3}
 --- !u!114 &1395236897
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7160,7 +7160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32204be28b314545860ed8a4f2f3c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
+  health: 30
   speed: 3
   fireRate: 1
   positionRate: 3
@@ -7915,7 +7915,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9819697a2d4f40f47bb4a769acb33c05, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e623b5f80befb874abaef08f1961eb51, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8015,6 +8015,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2023632196}
   vfxSource: {fileID: 2023632195}
+  jumpingSound: {fileID: 8300000, guid: a26718dcbf2ee284b951a454f5797e78, type: 3}
+  throwingSound: {fileID: 8300000, guid: ef56f0876b8231b488ee905a9e2aff9e, type: 3}
+  dashSound: {fileID: 8300000, guid: 399bd219690a6d645a18ad0255465077, type: 3}
+  playerHitSound: {fileID: 8300000, guid: 01e872f4a05954148baf4f5a74a51027, type: 3}
+  enemyHitSound: {fileID: 8300000, guid: eb4f372d6363b3a4e8b03e0009701e6c, type: 3}
+  powerUpSound: {fileID: 8300000, guid: e4b2cd30a0981954198a535697dba676, type: 3}
+  fireBallSound: {fileID: 8300000, guid: ae9a2654c6d407947a1406bceecbaafa, type: 3}
 --- !u!4 &2023632198
 Transform:
   m_ObjectHideFlags: 0

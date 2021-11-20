@@ -36,6 +36,10 @@ public class BossController : MonoBehaviour {
         counter2 = 0.0f;
         counter3 = 0.0f;
         BossAnim.SetBool("IsDead", false);
+        PlayerMovement pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        if(pm != null) {
+            pm.AddJump();
+        }
     }
 
     private void FixedUpdate() {
@@ -73,6 +77,10 @@ public class BossController : MonoBehaviour {
     }
 
     public void TakeDamage(int damage) {
+        SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+        if(sc != null) {
+            sc.PlaySound(5);
+        }
         if (PlayerPrefs.GetInt("HasVeneno") == 1) {
             health -= damage;
         } else {
@@ -88,6 +96,10 @@ public class BossController : MonoBehaviour {
     public void SpawnAmmo() {
         counter3 += Time.deltaTime;
         if(counter3 >= ammoSpawnRate) {
+            SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
+            if (sc != null) {
+                sc.PlaySound(7);
+            }
             int rand = Random.Range(1, 7);
             if(rand <= 3.0f) {
                 Instantiate(ammoPrefab, spawnOne.position, Quaternion.identity);

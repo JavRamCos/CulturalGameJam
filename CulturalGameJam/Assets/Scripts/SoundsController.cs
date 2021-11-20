@@ -14,6 +14,7 @@ public class SoundsController : MonoBehaviour
 	[SerializeField] private AudioClip playerHitSound;
 	[SerializeField] private AudioClip enemyHitSound;
 	[SerializeField] private AudioClip powerUpSound;
+	[SerializeField] private AudioClip fireBallSound;
 
 	private void Awake() {
 		if (instance == null) {
@@ -45,6 +46,9 @@ public class SoundsController : MonoBehaviour
 				break;
 			case 6:
 				vfxSource.PlayOneShot(powerUpSound);
+				break;
+			case 7:
+				vfxSource.PlayOneShot(fireBallSound);
 				break;
 			default:
 				//vfxSource.PlayOneShot();
