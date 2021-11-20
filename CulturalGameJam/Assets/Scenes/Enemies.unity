@@ -1172,6 +1172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 1893407441}
+  greenHalo: {fileID: 0}
+  redHalo: {fileID: 0}
 --- !u!61 &1476812899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4337,6 +4339,8 @@ MonoBehaviour:
   nextWaypointDistance: 3
   frozenTime: 0
   frozen: 0
+  health: 0
+  maxHealth: 0
   chase: 0
   starttingPoint: {fileID: 749645366}
   enemyGFX: {fileID: 1810604833}
@@ -5012,6 +5016,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3010737483157859783, guid: 38c980dd21fc2fe438a562ca8e372c99, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 5422368105926374474, guid: 6cce1cdd95e28da46a28ec3284a9f049, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38c980dd21fc2fe438a562ca8e372c99, type: 3}
 --- !u!1001 &1029268684253068535

@@ -142,6 +142,8 @@ MonoBehaviour:
   nextWaypointDistance: 3
   frozenTime: 7
   frozen: 0
+  health: 0
+  maxHealth: 0
   chase: 0
   starttingPoint: {fileID: 0}
   enemyGFX: {fileID: 4820128233018798403}
@@ -192,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820128233018798403}
   - component: {fileID: 4820128233018798400}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: 228-2288588_castlevania-4-bat-sprite-hd-png-download
   m_TagString: Untagged
   m_Icon: {fileID: 0}

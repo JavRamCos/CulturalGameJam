@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 1029268685235470831}
   - component: {fileID: 1029268685235470829}
   - component: {fileID: 1029268685235470830}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: FireTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,6 +221,8 @@ MonoBehaviour:
   frozenTime: 7
   mustPatrol: 0
   mustTurn: 0
+  health: 0
+  maxHealth: 0
   fire: 0
   canShoot: 1
   frozen: 0
