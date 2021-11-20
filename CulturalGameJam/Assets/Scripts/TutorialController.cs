@@ -15,4 +15,8 @@ public class TutorialController : MonoBehaviour {
         PlayerPrefs.SetInt("CompletedTutorial", 1);
         SceneManager.LoadScene("Level1");
     }
+
+    public void RepeatTutorial() {
+        SceneManager.LoadScene("Tutorial");
+    }
 }

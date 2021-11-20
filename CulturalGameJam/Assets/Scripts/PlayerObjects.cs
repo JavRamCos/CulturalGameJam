@@ -54,6 +54,11 @@ public class PlayerObjects : MonoBehaviour
         } else if (collision.gameObject.tag == "BossProjectile") {
             PlayerHealth.instance.takeHit(1);
             Destroy(collision.gameObject);
+        } else if (collision.gameObject.tag == "River") {
+            TutorialController tc = GameObject.FindGameObjectWithTag("GameController").GetComponent<TutorialController>();
+            if(tc != null) {
+                tc.RepeatTutorial();
+            }
         }
     }
 
