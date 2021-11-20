@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class BossController : MonoBehaviour {
@@ -9,13 +10,18 @@ public class BossController : MonoBehaviour {
     [SerializeField] private float speed;
     [SerializeField] private float fireRate;
     [SerializeField] private float positionRate;
+    [SerializeField] private float ammoSpawnRate;
     [SerializeField] private Transform[] positions;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Animator BossAnim;
+    [SerializeField] private GameObject ammoPrefab;
+    [SerializeField] private Transform spawnOne;
+    [SerializeField] private Transform spawnTwo;
     private Vector3 nextPos;
     private Vector3 playerPos;
     private float counter1;
     private float counter2;
+    private float counter3;
     private bool isDead;
     private bool hasNextPos;
 
@@ -28,6 +34,7 @@ public class BossController : MonoBehaviour {
         gameObject.transform.position = positions[0].transform.position;
         counter1 = 0.0f;
         counter2 = 0.0f;
+        counter3 = 0.0f;
         BossAnim.SetBool("IsDead", false);
     }
 
@@ -39,6 +46,7 @@ public class BossController : MonoBehaviour {
             }
             ChangePosition();
             FireAtPlayer();
+            SpawnAmmo();
         }
     }
 
@@ -77,8 +85,21 @@ public class BossController : MonoBehaviour {
         }
     }
 
+    public void SpawnAmmo() {
+        counter3 += Time.deltaTime;
+        if(counter3 >= ammoSpawnRate) {
+            int rand = Random.Range(1, 7);
+            if(rand <= 3.0f) {
+                Instantiate(ammoPrefab, spawnOne.position, Quaternion.identity);
+            } else {
+                Instantiate(ammoPrefab, spawnTwo.position, Quaternion.identity);
+            }
+            counter3 = 0.0f;
+        }
+    }
+
     public void WinGame() {
-        print("Game Win");
+        SceneManager.LoadScene("Outro");
     }
 
 }
