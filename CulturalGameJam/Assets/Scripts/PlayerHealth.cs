@@ -16,6 +16,9 @@ public class PlayerHealth : MonoBehaviour
     public float knockbackForceYUp;
     Rigidbody2D rb;
 
+    [SerializeField] public SpriteRenderer sprite;
+    Blink blink;
+
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -28,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = maxHealth;
         rb = GetComponent<Rigidbody2D>();
+        blink = GetComponent<Blink>();
     }
 
     //Recibir danio
@@ -54,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
                 knockback(collision);
                 Invoke("HitAnimation", 0.5f);
             }
+            StartCoroutine(blinkEffect());
             Invoke("SetCanGetDamage", 2.0f);
         }
     }
@@ -201,5 +206,11 @@ public class PlayerHealth : MonoBehaviour
         {
             rb.AddForce(new Vector2(knockbackForceX, knockbackForceY), ForceMode2D.Force);
         }
+    }
+    IEnumerator blinkEffect()
+    {
+        sprite.material = blink.blink;
+        yield return new WaitForSeconds(0.5f);
+        sprite.material = blink.original;
     }
 }

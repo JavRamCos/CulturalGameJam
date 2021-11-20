@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820128232838454403}
   - component: {fileID: 4820128232838454402}
+  - component: {fileID: 485942309065264510}
   - component: {fileID: 4820128232838454461}
   - component: {fileID: 4820128232838454463}
   - component: {fileID: 4820128232838454460}
@@ -126,6 +127,20 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &485942309065264510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4820128232838454462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb3637a20846484da6eb31603606b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  blink: {fileID: 2100000, guid: 06e8b45b839a2294a96fe5f36862c0d3, type: 2}
 --- !u!114 &4820128232838454461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +162,7 @@ MonoBehaviour:
   chase: 0
   starttingPoint: {fileID: 0}
   enemyGFX: {fileID: 4820128233018798403}
+  sprite: {fileID: 4820128233018798400}
 --- !u!58 &4820128232838454463
 CircleCollider2D:
   m_ObjectHideFlags: 0

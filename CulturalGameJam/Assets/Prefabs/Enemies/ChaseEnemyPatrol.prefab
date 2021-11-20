@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6385241241102274540}
   - component: {fileID: 6064140813783869947}
+  - component: {fileID: 5394759144308151974}
   - component: {fileID: 6385241241102274538}
   - component: {fileID: 7580863591675034591}
   - component: {fileID: 8482274942215623052}
@@ -96,6 +97,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   bodyCollider: {fileID: 7580863591675034591}
+  sprite: {fileID: 6385241242536349328}
+--- !u!114 &5394759144308151974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385241241102274537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb3637a20846484da6eb31603606b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  blink: {fileID: 2100000, guid: 06e8b45b839a2294a96fe5f36862c0d3, type: 2}
 --- !u!50 &6385241241102274538
 Rigidbody2D:
   serializedVersion: 4

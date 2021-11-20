@@ -27,6 +27,9 @@ public class AIPatrol : MonoBehaviour
     public GameObject bullet;
     private GameObject player;
 
+    [SerializeField] public SpriteRenderer sprite;
+    Blink blink;
+
     private void Awake()
     {
         if (instance == null)
@@ -42,6 +45,7 @@ public class AIPatrol : MonoBehaviour
         radius = 5f;
         mustPatrol = true;
         frozen = false;
+        blink = GetComponent<Blink>();
         health = maxHealth;
     }
 
@@ -143,6 +147,12 @@ public class AIPatrol : MonoBehaviour
         yield return new WaitForSeconds(frozenTime);
         frozen = false;
     }
+    IEnumerator blinkEffect()
+    {
+        sprite.material = blink.blink;
+        yield return new WaitForSeconds(0.5f);
+        sprite.material = blink.original;
+    }
     public void takeHit(int damage)
     {
         if (PlayerPrefs.GetInt("HasVeneno") == 1)
@@ -157,6 +167,7 @@ public class AIPatrol : MonoBehaviour
         {
             if (!frozen)
             {
+                StartCoroutine(blinkEffect());
                 StartCoroutine(Frozen());
             }
         }

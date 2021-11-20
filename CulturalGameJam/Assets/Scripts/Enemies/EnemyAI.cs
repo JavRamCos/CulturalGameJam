@@ -26,6 +26,8 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+    [SerializeField] public SpriteRenderer sprite;
+    Blink blink;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class EnemyAI : MonoBehaviour
         frozen = false;
         target = GameObject.FindGameObjectWithTag("Player");
         seeker = GetComponent<Seeker>();
+        blink = GetComponent<Blink>();
         rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
 
@@ -115,6 +118,12 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(frozenTime);
         frozen = false;
     }
+    IEnumerator blinkEffect()
+    {
+        sprite.material = blink.blink;
+        yield return new WaitForSeconds(0.5f);
+        sprite.material = blink.original;
+    }
     public void takeHit(int damage)
     {
         if (PlayerPrefs.GetInt("HasVeneno") == 1)
@@ -129,6 +138,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (!frozen)
             {
+                StartCoroutine(blinkEffect());
                 StartCoroutine(Frozen());
             }
         }

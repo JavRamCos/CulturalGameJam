@@ -23,6 +23,9 @@ public class ChaseAIPatrol : MonoBehaviour
     public Collider2D bodyCollider;
     private GameObject player;
 
+    [SerializeField] public SpriteRenderer sprite;
+    Blink blink;
+
     private void Awake()
     {
         if (instance == null)
@@ -38,6 +41,7 @@ public class ChaseAIPatrol : MonoBehaviour
         frozen = false;
         mustPatrol = true;
         health = maxHealth;
+        blink = GetComponent<Blink>();
     }
 
     // Update is called once per frame
@@ -89,6 +93,13 @@ public class ChaseAIPatrol : MonoBehaviour
         frozen = false;
     }
 
+    IEnumerator blinkEffect()
+    {
+        sprite.material = blink.blink;
+        yield return new WaitForSeconds(0.5f);
+        sprite.material = blink.original;
+    }
+
     public void takeHit(int damage)
     {
         if (PlayerPrefs.GetInt("HasVeneno") == 1)
@@ -104,6 +115,7 @@ public class ChaseAIPatrol : MonoBehaviour
             if (!frozen)
             {
                 StartCoroutine(Frozen());
+                StartCoroutine(blinkEffect());
             }
         }
     }

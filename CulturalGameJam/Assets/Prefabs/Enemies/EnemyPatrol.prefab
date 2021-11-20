@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3578193817644989391}
   - component: {fileID: 3578193817644989384}
+  - component: {fileID: 6221604613382385687}
   - component: {fileID: 3578193817644989385}
   - component: {fileID: 592596988}
   - component: {fileID: 2054691858065171887}
@@ -70,6 +71,21 @@ MonoBehaviour:
   shootPos2: {fileID: 0}
   limitRange: {fileID: 0}
   bullet: {fileID: 0}
+  sprite: {fileID: 3578193817970719411}
+--- !u!114 &6221604613382385687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578193817644989386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb3637a20846484da6eb31603606b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  blink: {fileID: 2100000, guid: 06e8b45b839a2294a96fe5f36862c0d3, type: 2}
 --- !u!50 &3578193817644989385
 Rigidbody2D:
   serializedVersion: 4

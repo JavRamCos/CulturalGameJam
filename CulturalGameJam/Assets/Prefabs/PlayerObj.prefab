@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 789165986257512550}
   - component: {fileID: 3093103671928621472}
+  - component: {fileID: 6259481468503879226}
   - component: {fileID: 789165986257512544}
   - component: {fileID: 6786469423541804663}
   - component: {fileID: 789165986257512548}
@@ -50,6 +51,7 @@ GameObject:
   - component: {fileID: 3240608821422882346}
   - component: {fileID: 2032514109182364670}
   - component: {fileID: 1271865482702637492}
+  - component: {fileID: 1320975588565702792}
   m_Layer: 0
   m_Name: PlayerObj
   m_TagString: Player
@@ -92,6 +94,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.0029562116}
   m_Size: {x: 0.96848166, y: 1.5721134}
   m_Direction: 0
+--- !u!114 &6259481468503879226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789165986257512549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb3637a20846484da6eb31603606b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  blink: {fileID: 2100000, guid: 06e8b45b839a2294a96fe5f36862c0d3, type: 2}
 --- !u!61 &789165986257512544
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,6 +213,11 @@ MonoBehaviour:
   health: 0
   maxHealth: 5
   animator: {fileID: 789165987343536029}
+  knockbackForceX: 1400
+  knockbackForceY: 125
+  knockbackForceXUp: 1200
+  knockbackForceYUp: 600
+  sprite: {fileID: 789165987343536018}
 --- !u!114 &3010737483157859783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b36ab3263035949b9948e493ee602a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5480821935110713303, guid: 1dfd4b4d1e1b7384fad6cd6e22182b24, type: 3}
+  bullet: {fileID: 5422368105926374474, guid: 6cce1cdd95e28da46a28ec3284a9f049, type: 3}
   fireDest: {fileID: 5856183128572053271}
   fireDestUp: {fileID: 9106249128916473647}
   shootTime: 1
@@ -275,6 +296,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f6cf2dfca290c4085c2587d564185f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1320975588565702792
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789165986257512549}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.009898603}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.6277457}
+  m_EdgeRadius: 0
 --- !u!1 &789165987343536016
 GameObject:
   m_ObjectHideFlags: 0
