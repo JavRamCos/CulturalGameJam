@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  frozenTime: 7
+  frozenTime: 4
   mustPatrol: 0
   mustTurn: 0
   health: 0

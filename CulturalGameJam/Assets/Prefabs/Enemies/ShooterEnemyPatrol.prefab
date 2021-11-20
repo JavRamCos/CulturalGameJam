@@ -219,7 +219,7 @@ MonoBehaviour:
   timeBTWShots: 2.5
   shootSpeed: 3
   radius: 0
-  frozenTime: 7
+  frozenTime: 4
   mustPatrol: 0
   mustTurn: 0
   health: 0
