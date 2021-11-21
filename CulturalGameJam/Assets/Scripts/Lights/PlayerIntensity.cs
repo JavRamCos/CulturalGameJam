@@ -26,8 +26,9 @@ public class PlayerIntensity : MonoBehaviour
     
     public void LightIntensity()
     {
-        playerLight.pointLightOuterRadius += 0.3f;
-        playerLight.pointLightInnerRadius += 0.2f;
+        playerLight.pointLightOuterRadius += 0.35f;
+        playerLight.pointLightInnerRadius += 0.25f;
+        LightMap.instance.LightIntensity();
     }
 
 }
