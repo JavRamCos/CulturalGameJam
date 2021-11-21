@@ -264,7 +264,7 @@ MonoBehaviour:
   canvas: {fileID: 1405109657420258172}
   dialogueAnim: {fileID: 2032514109182364670}
   dialogueText: {fileID: 9058091303371292558}
-  timeForText: 2
+  timeForText: 6
 --- !u!95 &2032514109182364670
 Animator:
   serializedVersion: 3

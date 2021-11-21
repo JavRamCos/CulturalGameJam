@@ -47,6 +47,7 @@ public class PlayerObjects : MonoBehaviour
         } else if(collision.gameObject.tag == "Veneno") {
             PlayerPrefs.SetInt("HasVeneno", 1);
             Destroy(collision.gameObject);
+            MosquitoController.instance.ShowDialogue(3);
             SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
             if (sc != null) {
                 sc.PlaySound(6);
@@ -54,6 +55,7 @@ public class PlayerObjects : MonoBehaviour
         } else if(collision.gameObject.tag == "Pluma") {
             PlayerPrefs.SetInt("HasPluma", 1);
             Destroy(collision.gameObject);
+            MosquitoController.instance.ShowDialogue(2);
             SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
             if (sc != null) {
                 sc.PlaySound(6);
@@ -62,6 +64,7 @@ public class PlayerObjects : MonoBehaviour
             PlayerMovement.instance.AddJump();
             PlayerPrefs.SetInt("HasPelota", 1);
             Destroy(collision.gameObject);
+            MosquitoController.instance.ShowDialogue(1);
             SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
             if (sc != null) {
                 sc.PlaySound(6);

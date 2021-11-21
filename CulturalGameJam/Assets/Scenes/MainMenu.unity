@@ -1102,8 +1102,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.595, y: -421.25815}
-  m_SizeDelta: {x: 1582.5, y: 1529.0764}
+  m_AnchoredPosition: {x: -10.595, y: -810.38074}
+  m_SizeDelta: {x: 1582.5, y: 2307.3218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &417113991
 MonoBehaviour:
@@ -1173,10 +1173,28 @@ MonoBehaviour:
     Mendoza Garcia
 
 
-    MUSIC:
+    MUSIC AND VFX:
 
 
-    (Unknown)
+    Jumping sound: https://www.youtube.com/watch?v=_eqKyzxa0dM
+
+    Dash
+    Sound: https://www.youtube.com/watch?v=1wgoDlp6IJg
+
+    Throw Sound: https://www.youtube.com/watch?v=O3u5fr7-3JQ
+
+    Hit
+    Sounds: https://www.youtube.com/watch?v=MDqah_9Etz4
+
+    Boss Fight music: https://www.youtube.com/watch?v=9gBTKiVqprE
+
+    Level
+    One music: https://www.youtube.com/watch?v=4HWUOx_BXiU
+
+    Tutorial music:
+    https://www.youtube.com/watch?v=iq5LY8qzwLk
+
+    Main menu music: https://www.youtube.com/watch?v=SUfTo2pZsPY
 
 '
 --- !u!222 &417113992
@@ -1508,7 +1526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &606417702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1727,8 +1745,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1677569600}
   m_HandleRect: {fileID: 1677569599}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.44900307
+  m_Value: 0.9999999
+  m_Size: 0.29755712
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3283,8 +3301,8 @@ RectTransform:
   m_Father: {fileID: 143441116}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5509969}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3716,7 +3734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2037276422
 RectTransform:
   m_ObjectHideFlags: 0
