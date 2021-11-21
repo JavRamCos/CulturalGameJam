@@ -11,12 +11,14 @@ public class OtrosRooms : MonoBehaviour
 
     private int count = 0;
 
-    
+    public GameObject current_Area;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -27,13 +29,15 @@ public class OtrosRooms : MonoBehaviour
         if (roomDetection.Length == 0 && levelGen.stop == true)
         {
             int rnd = Random.Range(0, levelGen.rooms.Length);
-            Instantiate(levelGen.rooms[rnd], transform.position, Quaternion.identity);
+            var room = Instantiate(levelGen.rooms[rnd], transform.position, Quaternion.identity);
+            room.transform.parent = current_Area.transform;
             count += 1;
 
             int randHP = Random.Range(0, 1);
             if(randHP == 0)
             {
-                Instantiate(hp, new Vector2(transform.position.x, transform.position.y - 6.5f), Quaternion.identity);
+                var item = Instantiate(hp, new Vector2(transform.position.x, transform.position.y - 6.5f), Quaternion.identity);
+                item.transform.parent = current_Area.transform;
                 Debug.Log("HP");
             }
         }

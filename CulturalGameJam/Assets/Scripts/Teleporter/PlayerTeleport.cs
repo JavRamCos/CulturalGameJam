@@ -25,6 +25,7 @@ public class PlayerTeleport : MonoBehaviour
         {
             currentTeleporter = collision.gameObject;
             currentTeleporter.GetComponent < Teleporter>().EnaibleGreenHalo();
+            currentTeleporter.GetComponent<Teleporter>().room_creator.HidePrevArea();
         }
     }
 

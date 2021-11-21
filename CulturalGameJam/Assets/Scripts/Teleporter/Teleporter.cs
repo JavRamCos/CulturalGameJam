@@ -12,12 +12,15 @@ public class Teleporter : MonoBehaviour
     public bool isBoss;
     public bool isSecondArea;
     GameObject grand_parent;
+    public CreateRoom room_creator;
 
     private void Start()
     {
         greenHalo.enabled = false;
         redHalo.enabled = false;
-        
+        room_creator = transform.parent.GetComponentInParent<CreateRoom>();
+
+
     }
 
     public Transform GetDestination()
@@ -32,7 +35,12 @@ public class Teleporter : MonoBehaviour
             if (isSecondArea)
             {
                 AstarPath.active.Scan();
+                
+                return destination;
             }
+
+            
+            room_creator.HideCurrentArea();
             return destination;
         }
         else
@@ -45,6 +53,7 @@ public class Teleporter : MonoBehaviour
     public void EnaibleGreenHalo()
     {
         greenHalo.enabled = true;
+        room_creator.UnlockNextArea();
     }
     public void DisableGreenHalo()
     {

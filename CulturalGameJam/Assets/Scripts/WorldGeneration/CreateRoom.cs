@@ -43,7 +43,9 @@ public class CreateRoom : MonoBehaviour
     {
         int rndSpawnPoint = Random.Range(0, spawnPoints.Length);
         transform.position = spawnPoints[rndSpawnPoint].position;
-        Instantiate(rooms[0], transform.position, Quaternion.identity);
+        
+        var room = Instantiate(rooms[0], transform.position, Quaternion.identity);
+        room.transform.parent = current_Area.transform;
         if (playerSpawn[0].tag != "Player")
         {
             var newTele = Instantiate(playerSpawn[0], new Vector2(transform.position.x, transform.position.y + 5), Quaternion.identity);
@@ -55,7 +57,9 @@ public class CreateRoom : MonoBehaviour
         }
         else
         {
+            //var tp =
             Instantiate(playerSpawn[0], new Vector2(transform.position.x, transform.position.y + 5), Quaternion.identity);
+            //tp.transform.parent = current_Area.transform;
         }
         
 
@@ -93,7 +97,8 @@ public class CreateRoom : MonoBehaviour
                 transform.position = newPos;
 
                 int rand = Random.Range(0, rooms.Length);
-                Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                var room = Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                room.transform.parent = current_Area.transform;
 
                 direccion = Random.Range(1, 6);
                 if (direccion == 3)
@@ -105,21 +110,24 @@ public class CreateRoom : MonoBehaviour
                     direccion = 5;
                 }
 
-                int rand_item = Random.Range(0, 4);
+                int rand_item = Random.Range(0, world_items.Length);
                 if(rand_item == 0 && spwn == false)
                 {
-                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    item.transform.parent = current_Area.transform;
                     spwn = true;
                 }
                 else if(rand_item == 1 && plumaCount < countLim)
                 {
-                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    item.transform.parent = current_Area.transform;
                     plumaCount += 1;
                     //Debug.Log("PLUMA");
                 }
                 else if (rand_item == 2)
                 {
-                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    item.transform.parent = current_Area.transform;
                     spwn = true;
                 }
             }
@@ -139,19 +147,22 @@ public class CreateRoom : MonoBehaviour
                 transform.position = newPos;
 
                 int rand = Random.Range(0, rooms.Length);
-                Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                var room = Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                room.transform.parent = current_Area.transform;
 
                 direccion = Random.Range(3, 6);
 
                 int rand_item = Random.Range(0, 2);
                 if (rand_item == 0 && spwn == false)
                 {
-                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    item.transform.parent = current_Area.transform;
                     spwn = true;
                 }
                 else if (rand_item == 1 && plumaCount < countLim)
                 {
-                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    item.transform.parent = current_Area.transform;
                     plumaCount += 1;
                     //Debug.Log("PLUMA");
                 }
@@ -178,17 +189,20 @@ public class CreateRoom : MonoBehaviour
                     if (dCount >= 2)
                     {
                         roomDetection[0].GetComponent<RoomType>().DestroyRoom();
-                        Instantiate(rooms[3], transform.position, Quaternion.identity);
+                        var room = Instantiate(rooms[3], transform.position, Quaternion.identity);
+                        room.transform.parent = current_Area.transform;
 
                         int rand_item = Random.Range(0, 2);
                         if (rand_item == 0 && spwn == false)
                         {
-                            Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            item.transform.parent = current_Area.transform;
                             spwn = true;
                         }
                         else if (rand_item == 1 && plumaCount < countLim)
                         {
-                            Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            item.transform.parent = current_Area.transform;
                             plumaCount += 1;
                             //Debug.Log("PLUMA");
                         }
@@ -197,22 +211,25 @@ public class CreateRoom : MonoBehaviour
                     {
                         roomDetection[0].GetComponent<RoomType>().DestroyRoom();
 
-                        int randomBottom = Random.Range(1, 4);
+                        int randomBottom = Random.Range(1, rooms.Length);
                         if (randomBottom == 2)
                         {
                             randomBottom = 1;
                         }
-                        Instantiate(rooms[randomBottom], transform.position, Quaternion.identity);
+                        var room = Instantiate(rooms[randomBottom], transform.position, Quaternion.identity);
+                        room.transform.parent = current_Area.transform;
 
                         int rand_item = Random.Range(0, 2);
                         if (rand_item == 0 && spwn == false)
                         {
-                            Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            item.transform.parent = current_Area.transform;
                             spwn = true;
                         }
                         else if (rand_item == 1 && plumaCount < countLim)
                         {
-                            Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            var item = Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                            item.transform.parent = current_Area.transform;
                             plumaCount += 1;
                             //Debug.Log("PLUMA");
                         }
@@ -226,7 +243,8 @@ public class CreateRoom : MonoBehaviour
                 transform.position = newPos;
 
                 int rand = Random.Range(2, 4);
-                Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                var rand_room = Instantiate(rooms[rand], transform.position, Quaternion.identity);
+                rand_room.transform.parent = current_Area.transform;
 
                 direccion = Random.Range(1, 5);
             }
@@ -239,10 +257,34 @@ public class CreateRoom : MonoBehaviour
 
                 teleport.destination = next_Area.transform.GetChild(next_Area.transform.childCount - 1).transform;
 
-                stop = true;
+
+                if (gameObject.transform.parent.name == "Area1 (1)" || gameObject.transform.parent.name == "Area1 (2)")
+                {
+                    transform.parent.gameObject.SetActive(false);
+                    stop = true;
+                }
+                else
+                {
+                    stop = true;
+                }
             }
 
         }
 
+    }
+
+    public void UnlockNextArea()
+    {
+        next_Area.SetActive(true);
+    }
+
+    public void HideCurrentArea()
+    {
+        current_Area.SetActive(true);
+    }
+
+    public void HidePrevArea()
+    {
+        prev_Area.SetActive(true);
     }
 }
