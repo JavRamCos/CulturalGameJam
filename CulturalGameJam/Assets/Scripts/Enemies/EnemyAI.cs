@@ -44,6 +44,7 @@ public class EnemyAI : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
         seeker = GetComponent<Seeker>();
         blink = GetComponent<Blink>();
+        starttingPoint = transform.parent.transform; 
         rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
 
