@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashForce = 15f;
     private float dashStartTimer = 0.25f;
     private float dashTimer;
-    private bool hasDash = true;
+    private bool hasDash = false;
     private float dashCooldown = 2f;
     private bool canDash;
 
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
                     canDouleJump = false;
                 animator.SetBool("Jumping", true);
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift) && hasDash && movement.x != 0 && canDash)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && (hasDash || PlayerPrefs.GetInt("HasBalam") == 1) && movement.x != 0 && canDash)
             {
                 SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
                 if (sc != null) {

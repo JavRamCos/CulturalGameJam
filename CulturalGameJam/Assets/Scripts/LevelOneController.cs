@@ -8,5 +8,6 @@ public class LevelOneController : MonoBehaviour
         PlayerPrefs.SetInt("HasVeneno", 0);
         PlayerPrefs.SetInt("HasPluma", 0);
         PlayerPrefs.SetInt("HasPelota", 0);
+        PlayerPrefs.SetInt("HasBalam", 0);
     }
 }

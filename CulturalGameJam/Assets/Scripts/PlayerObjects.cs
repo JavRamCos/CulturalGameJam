@@ -83,6 +83,10 @@ public class PlayerObjects : MonoBehaviour
             if(tc != null) {
                 tc.RepeatTutorial();
             }
+        } else if (collision.gameObject.tag == "Balam") {
+            PlayerPrefs.SetInt("HasBalam", 1);
+            PlayerMovement.instance.AddDash();
+            Destroy(collision.gameObject);
         }
     }
 
