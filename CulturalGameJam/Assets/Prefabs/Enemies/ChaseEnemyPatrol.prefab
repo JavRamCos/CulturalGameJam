@@ -199,7 +199,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   bodyCollider: {fileID: 7580863591675034591}
-  sprite: {fileID: 0}
+  sprite: {fileID: 6686924831333434107}
 --- !u!114 &5394759144308151974
 MonoBehaviour:
   m_ObjectHideFlags: 0

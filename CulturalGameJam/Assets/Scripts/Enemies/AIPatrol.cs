@@ -73,19 +73,19 @@ public class AIPatrol : MonoBehaviour
                     if (canShoot)
                     {
                         direction = shootPos2;
-                        StartCoroutine(Shoot(45f, 90f, 5, 0f, direction));
+                        StartCoroutine(Shoot(45f, 90f, 5, -90f, direction));
                     }
                 }
                 else if (player.transform.position.x > transform.position.x)
                 {
                     if (canShoot)
                     {
-                        StartCoroutine(Shoot(45f, 90f, 3, 0f, direction));
+                        StartCoroutine(Shoot(45f, 90f, 3, -90f, direction));
                     }
                 }else if (player.transform.position.x < transform.position.x) {
                     if (canShoot)
                     {
-                        StartCoroutine(Shoot(45f, 0f, 3, 90f, direction));
+                        StartCoroutine(Shoot(45f, 0f, 3, 0f, direction));
                     }
                 }
             }
