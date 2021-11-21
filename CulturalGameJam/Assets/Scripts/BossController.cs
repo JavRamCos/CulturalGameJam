@@ -36,6 +36,10 @@ public class BossController : MonoBehaviour {
         counter2 = 0.0f;
         counter3 = 0.0f;
         BossAnim.SetBool("IsDead", false);
+        PlayerMovement pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        if(pm != null && PlayerPrefs.GetInt("HasPelota") == 1) {
+            pm.AddJump();
+        }
     }
 
     private void FixedUpdate() {
