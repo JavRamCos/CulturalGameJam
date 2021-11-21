@@ -18530,7 +18530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5489844652904364935, guid: aff3a91a88a3b0f45b5b98e1d134a82e, type: 3}
       propertyPath: world_items.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5489844652904364935, guid: aff3a91a88a3b0f45b5b98e1d134a82e, type: 3}
       propertyPath: playerSpawn.Array.data[0]
@@ -18564,6 +18564,10 @@ PrefabInstance:
       propertyPath: world_items.Array.data[1]
       value: 
       objectReference: {fileID: 4088901246982737902, guid: 222728025d822364ca716a70b4b7b3d3, type: 3}
+    - target: {fileID: 5489844652904364935, guid: aff3a91a88a3b0f45b5b98e1d134a82e, type: 3}
+      propertyPath: world_items.Array.data[2]
+      value: 
+      objectReference: {fileID: 9115821645145231795, guid: 5e0b4e6a85adc1941a7d449d680bb0e2, type: 3}
     - target: {fileID: 5489844652940049446, guid: aff3a91a88a3b0f45b5b98e1d134a82e, type: 3}
       propertyPath: hp
       value: 

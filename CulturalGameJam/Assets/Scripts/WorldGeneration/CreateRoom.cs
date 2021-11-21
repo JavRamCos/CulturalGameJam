@@ -105,7 +105,7 @@ public class CreateRoom : MonoBehaviour
                     direccion = 5;
                 }
 
-                int rand_item = Random.Range(0, 2);
+                int rand_item = Random.Range(0, 4);
                 if(rand_item == 0 && spwn == false)
                 {
                     Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
@@ -116,6 +116,11 @@ public class CreateRoom : MonoBehaviour
                     Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
                     plumaCount += 1;
                     //Debug.Log("PLUMA");
+                }
+                else if (rand_item == 2)
+                {
+                    Instantiate(world_items[rand_item], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                    spwn = true;
                 }
             }
             else
