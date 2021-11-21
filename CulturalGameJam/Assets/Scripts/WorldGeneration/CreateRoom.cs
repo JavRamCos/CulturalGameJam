@@ -227,7 +227,7 @@ public class CreateRoom : MonoBehaviour
             }
             else
             {
-                var newTele = Instantiate(playerSpawn[1], new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+                var newTele = Instantiate(playerSpawn[1], new Vector2(transform.position.x, transform.position.y + 2.5f), Quaternion.identity);
                 newTele.transform.parent = gameObject.transform;
 
                 teleport = newTele.GetComponent<Teleporter>();
