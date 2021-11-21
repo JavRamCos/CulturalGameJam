@@ -278,13 +278,22 @@ public class CreateRoom : MonoBehaviour
         next_Area.SetActive(true);
     }
 
+    public void UnlockPrevArea()
+    {
+        prev_Area.SetActive(true);
+    }
+
     public void HideCurrentArea()
     {
-        current_Area.SetActive(true);
+        current_Area.SetActive(false);
     }
 
     public void HidePrevArea()
     {
-        prev_Area.SetActive(true);
+        prev_Area.SetActive(false);
+    }
+    public void HideNextArea()
+    {
+        next_Area.SetActive(false);
     }
 }

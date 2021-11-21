@@ -25,7 +25,23 @@ public class PlayerTeleport : MonoBehaviour
         {
             currentTeleporter = collision.gameObject;
             currentTeleporter.GetComponent < Teleporter>().EnaibleGreenHalo();
-            currentTeleporter.GetComponent<Teleporter>().room_creator.HidePrevArea();
+
+            if (currentTeleporter.GetComponent<Teleporter>().isTutorial == false)
+            {
+                if (currentTeleporter.GetComponent<Teleporter>().room_creator.playerSpawn[0] == currentTeleporter)
+                {
+
+                    currentTeleporter.GetComponent<Teleporter>().room_creator.UnlockPrevArea();
+                    currentTeleporter.GetComponent<Teleporter>().room_creator.HideNextArea();
+
+                }
+                else
+                {
+
+                    currentTeleporter.GetComponent<Teleporter>().room_creator.UnlockNextArea();
+                    currentTeleporter.GetComponent<Teleporter>().room_creator.HidePrevArea();
+                }
+            }
         }
     }
 
@@ -35,6 +51,17 @@ public class PlayerTeleport : MonoBehaviour
         {
             if (collision.gameObject == currentTeleporter)
             {
+                /*if (currentTeleporter.GetComponent<Teleporter>().room_creator.playerSpawn[0] == currentTeleporter)
+                {
+                    currentTeleporter.GetComponent<Teleporter>().room_creator.UnlockNextArea();
+                    currentTeleporter.GetComponent<Teleporter>().room_creator.HidePrevArea();
+
+                }
+                else
+                {
+                    currentTeleporter.GetComponent<Teleporter>().room_creator.UnlockPrevArea();
+                    currentTeleporter.GetComponent<Teleporter>().room_creator.HideNextArea();
+                }*/
                 currentTeleporter.GetComponent<Teleporter>().DisableGreenHalo();
                 currentTeleporter = null;
             }

@@ -11,6 +11,7 @@ public class Teleporter : MonoBehaviour
     [SerializeField] public SpriteRenderer redHalo;
     public bool isBoss;
     public bool isSecondArea;
+    public bool isTutorial;
     GameObject grand_parent;
     public CreateRoom room_creator;
 
@@ -18,14 +19,17 @@ public class Teleporter : MonoBehaviour
     {
         greenHalo.enabled = false;
         redHalo.enabled = false;
-        room_creator = transform.parent.GetComponentInParent<CreateRoom>();
+        if (!isTutorial)
+        {
+            room_creator = transform.parent.GetComponentInParent<CreateRoom>();
+        }
 
 
     }
 
     public Transform GetDestination()
     {
-        if (!isBoss)
+        if (!isBoss && !isTutorial)
         {
             grand_parent = GameObject.Find("Area1 (1)");
             if (grand_parent.transform.GetChild(0).transform.GetChild(0).name == gameObject.name)
@@ -43,6 +47,10 @@ public class Teleporter : MonoBehaviour
             room_creator.HideCurrentArea();
             return destination;
         }
+        else if (isTutorial)
+        {
+            return destination;
+        }
         else
         {
             SceneManager.LoadScene("Boss");
@@ -53,7 +61,6 @@ public class Teleporter : MonoBehaviour
     public void EnaibleGreenHalo()
     {
         greenHalo.enabled = true;
-        room_creator.UnlockNextArea();
     }
     public void DisableGreenHalo()
     {
