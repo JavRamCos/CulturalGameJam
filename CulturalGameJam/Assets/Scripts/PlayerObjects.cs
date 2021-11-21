@@ -54,6 +54,7 @@ public class PlayerObjects : MonoBehaviour
             }
         } else if(collision.gameObject.tag == "Pluma") {
             PlayerPrefs.SetInt("HasPluma", 1);
+            PlayerIntensity.instance.LightIntensity();
             Destroy(collision.gameObject);
             MosquitoController.instance.ShowDialogue(2);
             SoundsController sc = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundsController>();
