@@ -31,7 +31,16 @@ public class PlayerAbilities : MonoBehaviour
                 {
                     Transform direction = fireDest;
                     if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
+                    {
                         direction = fireDestUp;
+                        animator.SetBool("ShootUp", true);
+                        Invoke("ChangeUpBool", 0.4f);
+                    }
+                    else
+                    {
+                        animator.SetBool("Shooting", true);
+                        Invoke("ChangeBool", 0.4f);
+                    }
                     GameObject proj = Instantiate(bullet, direction.position, direction.rotation) as GameObject;
                     Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
                     rb.velocity = direction.transform.right * fireSpeed;
@@ -42,8 +51,12 @@ public class PlayerAbilities : MonoBehaviour
                         sc.PlaySound(2);
                     }
                 }
-                animator.SetBool("Shooting", true);
-                Invoke("ChangeBool", 0.4f);
+                else
+                {
+                    animator.SetBool("Shooting", true);
+                    Invoke("ChangeBool", 0.4f);
+                }
+                
 
             }
 
@@ -60,6 +73,12 @@ public class PlayerAbilities : MonoBehaviour
     private void ChangeBool()
     {
         animator.SetBool("Shooting", false);
+
+    }
+
+    private void ChangeUpBool()
+    {
+        animator.SetBool("ShootUp", false);
 
     }
 
