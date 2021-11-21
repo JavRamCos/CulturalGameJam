@@ -21,6 +21,7 @@ public class PlayerIntensity : MonoBehaviour
         playerLight.GetComponent<Light2D>();
         playerLight.pointLightOuterRadius = 1.18f;
         playerLight.pointLightInnerRadius = 0f;
+        playerLight.enabled = false;
     }
     
     public void LightIntensity()
