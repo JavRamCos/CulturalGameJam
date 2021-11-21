@@ -27,6 +27,10 @@ public class AIPatrol : MonoBehaviour
     public GameObject bullet;
     private GameObject player;
 
+    [SerializeField] protected Animator anim;
+    private bool attackMode;
+
+
     [SerializeField] public SpriteRenderer sprite;
     Blink blink;
 
@@ -45,6 +49,7 @@ public class AIPatrol : MonoBehaviour
         radius = 5f;
         mustPatrol = true;
         frozen = false;
+        attackMode = true;
         blink = GetComponent<Blink>();
         health = maxHealth;
     }
@@ -88,10 +93,12 @@ public class AIPatrol : MonoBehaviour
                         StartCoroutine(Shoot(45f, 0f, 3, 0f, direction));
                     }
                 }
+                anim.SetBool("Ataque", true);
             }
             else
             {
                 mustPatrol = true;
+                anim.SetBool("Ataque", false);
             }
         }
     }

@@ -35,7 +35,6 @@ public class ProjectileTrigger : MonoBehaviour
             else if (collision.gameObject.name.Contains("EnemyPatrol")
                 || collision.gameObject.name.Contains("ShooterEnemyPatrol"))
             {
-                Debug.Log("hola");
                 AIPatrol enemy = collision.gameObject.GetComponent<AIPatrol>();
                 if (enemy != null)
                 {

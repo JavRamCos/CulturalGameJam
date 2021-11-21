@@ -158,7 +158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3645590900583678461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.19, z: 0}
+  m_LocalPosition: {x: 0, y: -0.105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4602958351265152884}
@@ -339,6 +339,7 @@ MonoBehaviour:
   shootPos2: {fileID: 6105648170252114555}
   limitRange: {fileID: 1608277297}
   bullet: {fileID: 5435992950908167886, guid: 59743bf4178dcb84faccf3bfcff5613d, type: 3}
+  anim: {fileID: 5967408918594073124}
   sprite: {fileID: 4579174143042511034}
 --- !u!114 &4936586100612082031
 MonoBehaviour:
@@ -388,7 +389,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.059913635, y: -0.1302716}
+  m_Offset: {x: 0.085165024, y: -0.124824315}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -399,7 +400,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7673416, y: 0.38420442}
+  m_Size: {x: 1.0398369, y: 0.39509898}
   m_EdgeRadius: 0
 --- !u!70 &1354186222770413844
 CapsuleCollider2D:
