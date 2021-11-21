@@ -21,6 +21,7 @@ public class AIPatrol : MonoBehaviour
 
     public Rigidbody2D rb;
     public Transform groundCheckPos;
+    public LayerMask enemy;
     public LayerMask groundLayer;
     public Collider2D bodyCollider;
     public Transform shootPos, shootPos2, limitRange;
@@ -111,7 +112,7 @@ public class AIPatrol : MonoBehaviour
     }
     void Patrol()
     {
-        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer))
+        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer) || bodyCollider.IsTouchingLayers(enemy))
         {
             Flip();
         }

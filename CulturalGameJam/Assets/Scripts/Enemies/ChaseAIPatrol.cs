@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChaseAIPatrol : MonoBehaviour
 {
     public static ChaseAIPatrol instance;
-    public float speed, frozenTime;
+    public float speed, frozenTime, timeBTWShots, shootSpeeed;
     [HideInInspector]
 
     public bool mustPatrol;
@@ -17,10 +17,15 @@ public class ChaseAIPatrol : MonoBehaviour
     public bool chase = false;
     public bool frozen;
 
+    private bool canShoot = true;
+
     public Rigidbody2D rb;
     public Transform groundCheckPos;
     public LayerMask groundLayer;
+    public LayerMask enemy;
     public Collider2D bodyCollider;
+    public Transform shootPos;
+    public GameObject bullet;
     private GameObject player;
 
     [SerializeField] public SpriteRenderer sprite;
@@ -60,6 +65,29 @@ public class ChaseAIPatrol : MonoBehaviour
                 {
                     Flip();
                 }
+                if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer) || bodyCollider.IsTouchingLayers(enemy))
+                {
+                    mustPatrol = false;
+                    rb.velocity = Vector2.zero;
+                    if (player.transform.position.x > transform.position.x && transform.localScale.x < 0
+                        || player.transform.position.x < transform.position.x && transform.localScale.x > 0)
+                    {
+                        Flip();
+                        mustPatrol = true;
+                    }
+                }
+                Debug.Log((Mathf.Abs(player.transform.position.x - transform.position.x)));
+                if (Mathf.Abs(player.transform.position.x - transform.position.x) >= 7f)
+                {
+                    if (canShoot)
+                    {
+                        StartCoroutine(shoot());
+                    }
+                }
+            }
+            else
+            {
+                mustPatrol = true;
             }
         }
     }
@@ -72,7 +100,7 @@ public class ChaseAIPatrol : MonoBehaviour
     }
     void Patrol()
     {
-        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer))
+        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer) || bodyCollider.IsTouchingLayers(enemy))
         {
             Flip();
         }
@@ -98,6 +126,25 @@ public class ChaseAIPatrol : MonoBehaviour
         sprite.material = blink.blink;
         yield return new WaitForSeconds(0.5f);
         sprite.material = blink.original;
+    }
+
+    IEnumerator shoot()
+    {
+        canShoot = false;
+        float direccion = transform.localScale.x;
+        Debug.Log(direccion);
+        if (direccion == 1f)
+        {
+            GameObject newBuller = Instantiate(bullet, shootPos.position, Quaternion.Euler(new Vector3(0f, 0f, -90f)));
+            newBuller.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeeed * speed * Time.fixedDeltaTime, 0f);
+        }
+        else
+        {
+            GameObject newBuller = Instantiate(bullet, shootPos.position, Quaternion.Euler(new Vector3(0f, 0f, 90f)));
+            newBuller.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeeed * speed * Time.fixedDeltaTime, 0f);
+        }
+        yield return new WaitForSeconds(timeBTWShots);
+        canShoot = true;
     }
 
     public void takeHit(int damage)

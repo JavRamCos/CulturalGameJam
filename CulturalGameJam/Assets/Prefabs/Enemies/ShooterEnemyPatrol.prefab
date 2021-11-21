@@ -331,6 +331,9 @@ MonoBehaviour:
   frozen: 0
   rb: {fileID: 4602958351265152882}
   groundCheckPos: {fileID: 4602958352325138618}
+  enemy:
+    serializedVersion: 2
+    m_Bits: 128
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -415,8 +418,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.033961944, y: -0.38802868}
-  m_Size: {x: 0.09792389, y: 0.13034475}
+  m_Offset: {x: 0.018526077, y: -0.36}
+  m_Size: {x: 0.18437576, y: 0.18437576}
   m_Direction: 0
 --- !u!1 &4602958352325138617
 GameObject:

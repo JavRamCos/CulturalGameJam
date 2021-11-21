@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8446660828924983266}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShootingPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8446660829236477080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CenterPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 8446660829269558679}
   - component: {fileID: 8446660829269558678}
   - component: {fileID: 8446660829269558677}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShootingObstacle
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8446660830938662288}
   - component: {fileID: 8446660830938662295}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
